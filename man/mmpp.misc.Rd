@@ -9,8 +9,8 @@ These functions have not been put into a generic format, but are called by gener
 }
 
 \usage{
-forwardback.mmpp(tau, Q, delta, lambda)
-Estep.mmpp(tau, Q, delta, lambda)
+forwardback.mmpp(tau, Q, delta, lambda, fortran = TRUE)
+Estep.mmpp(tau, Q, delta, lambda, fortran = TRUE)
 }
 
 \arguments{
@@ -18,6 +18,7 @@ Estep.mmpp(tau, Q, delta, lambda)
   \item{Q}{the infinitesimal generator matrix of the Markov process.}
   \item{lambda}{a vector containing the Poisson rates.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states at time zero.}
+  \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R\ code.}
 }
 
 \details{

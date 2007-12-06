@@ -18,6 +18,18 @@ This page contains a listing of recent changes made to the package.
 \item The original function called \code{Viterbi} has been renamed to \code{\link{Viterbihmm}}, and \code{\link{Viterbi}} is now a generic function. (14 Sep 2007)
 
 \item Programming code that uses old versions of the functions should still work with this revised version of the package. However, you will get warning messages stating that certain functions are deprecated, and suggesting a possible alternative. To get a quick overview of the programming style, have a look at the examples in topic \code{\link{dthmm}}. (09 Nov 2007)
+
+\item \code{\link{forwardback}}: \code{for} loops replaced by Fortran code; much faster. The corresponding R code is still contained within the function in case the Fortran has incompatibility issues. (23 Nov 2007)
+
+\item \code{\link{forwardback.mmpp}}: \code{for} loops replaced by Fortran code. The corresponding R code is still contained within the function in case the Fortran has incompatibility issues. (24 Nov 2007)
+
+\item \code{\link{Estep.mmpp}}: \code{for} loops replaced by Fortran code. Cuts time considerably. These loops in R used far more time than the forward and backward equations. The corresponding R code is still contained within the function in case the Fortran has incompatibility issues. (27 Nov 2007)
+
+\item \code{\link{forwardback.mmpp}}, \code{\link{forwardback}} and \code{\link{Estep.mmpp}}: argument \code{fortran} added. (3 Dec 2007)
+
+\item \code{\link{forwardback}}, \code{\link{forwardback.mmpp}} and \code{\link{Estep.mmpp}}: inclusion of all variable sized arrays in the Fortran subroutine call to be compatible with non gfortran compilers (3 Dec 2007); more added for calls to Fortran subroutines \code{multi1} and \code{multi2}. (6 Dec 2007)
+
+\item \code{\link{Estep.mmpp}}: error in Fortran code of loop 6; \code{j1=0} to \code{j1=1}. (5 Dec 2007)
 }}
 
 
@@ -26,8 +38,6 @@ This page contains a listing of recent changes made to the package.
 \item The functions \code{\link{residuals}} and \code{\link{Viterbi}} need methods for objects with class \code{\link{mmpp}}.
 
 \item A number of the original functions have names that are too general. For example \code{\link{forwardback}} calculates the forward-backward probabilities, but only for the model \code{\link{dthmm}}. The corresponding function for the \code{\link{mmpp}} model is \code{\link{forwardback.mmpp}}. It would be more consistent to attach to these original functions a \code{dthmm} suffix.
-
-\item The \code{for} loops in the evaluation of the forward and backward equations are too slow. These should be implemented in C.
 
 \item The demonstration examples are all for \code{\link{dthmm}}. Also need some for \code{\link{mmglm}} and \code{\link{mmpp}}.
 }}

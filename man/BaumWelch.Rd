@@ -7,7 +7,7 @@
 \title{Estimate Parameters Using Baum-Welch Algorithm}
 
 \description{
-Estimates the parameters of a hidden Markov model. The Baum-Welch algorithm (Baum et al, 1970) referred to in the HMM literature is a version of the EM algorithm (Dempster et al, 1977).}
+Estimates the parameters of a hidden Markov model. The Baum-Welch algorithm (Baum et al, 1970) referred to in the HMM literature is a version of the EM algorithm (Dempster et al, 1977). See Hartley (1958) for an earlier application of the EM methodology, though not referred to as such.}
 
 \usage{
 BaumWelch(object, control, ...)
@@ -23,7 +23,7 @@ BaumWelch(object, control, ...)
 }
 
 \details{
-The initial parameter values used in the EM algorithm are those that are contained within the input object.
+The initial parameter values used by the EM algorithm are those that are contained within the input \code{object}.
 
 The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm}"} and \code{"\link{mmpp}"} can be viewed by typing \code{BaumWelch.dthmm}, \code{BaumWelch.mmglm} or \code{BaumWelch.mmpp}, respectively, on the \R command line.
 }
@@ -47,6 +47,8 @@ An object of class \code{"\link{dthmm}"} will also contain
 Baum, L.E.; Petrie, T.; Soules, G. \& Weiss, N. (1970). A maximization technique occurring in the statistical analysis of probabilistic functions of Markov chains. \emph{Annals of Mathematical Statistics} \bold{41(1)}, 164--171.
 
 Dempster, A.P.; Laird, N.M. \& Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38.
+
+Hartley, H.O. (1958). Maximum likelihood estimation from incomplete data. \emph{Biometrics} \bold{14(2)}, 174--194. DOI: \url{http://dx.doi.org/10.2307/2527783}
 }
 
 \keyword{methods}

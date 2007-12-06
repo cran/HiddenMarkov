@@ -12,7 +12,7 @@ These functions calculate the forward and backward probabilities for a \code{\li
 \usage{
 backward(x, Pi, distn, pm, pn = NULL)
 forward(x, Pi, delta, distn, pm, pn = NULL)
-forwardback(x, Pi, delta, distn, pm, pn = NULL)
+forwardback(x, Pi, delta, distn, pm, pn = NULL, fortran = TRUE)
 }
 
 \arguments{
@@ -22,6 +22,7 @@ forwardback(x, Pi, delta, distn, pm, pn = NULL)
   \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a probability (or density) function called \code{"dwxyz"} should be available, in the standard \R\ format (e.g. \code{\link{dnorm}} or \code{\link{dpois}}).}
   \item{pm}{is a list object containing the current (Markov dependent) parameter estimates associated with the distribution of the observed process (see \code{\link{dthmm}}).}
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see \code{\link{dthmm}}).}
+  \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R\ code.}
 }
 
 \value{
