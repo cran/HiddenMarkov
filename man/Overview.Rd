@@ -24,7 +24,7 @@ is described under the topic \code{\link{mmpp}}. This model can be simulated or 
 The main tasks performed by the package are listed below. These can be achieved by calling the appropriate generic function.
 \describe{
 \item{Simulation of HMMs:}{can be performed by the function \code{\link{simulate}}.}
-\item{Parameter Estimation:}{can be performed by the function \code{\link{BaumWelch}}.}
+\item{Parameter Estimation:}{can be performed by the functions \code{\link{BaumWelch}} (EM algorithm), or \code{\link{neglogLik}} together with \code{\link[stats]{nlm}} or \code{\link[stats]{optim}} (Newton type methods or grid searches).}
 \item{Model Residuals:}{can be extracted with the function \code{\link{residuals}}.}
 \item{Model Summary:}{can be extracted with the function \code{\link{summary}}.}
 \item{Log-Likelihood:}{can be calculated with the function \code{\link{logLik}}.}

@@ -24,7 +24,7 @@ BaumWelch.dthmm <- function (object, control = bwcontrol(), ...){
                                 format="f"), "\n")
             cat("diff =", diff, "\n\n")
         }
-        if (diff < 0 & control$posdiff) stop("Worse log-likelihood")
+        if (diff < 0 & control$posdiff) stop("Worse log-likelihood on last iteration")
         if (eval(control$converge)) break
         #----  Mstep  ----
         Pi <- diag(1/apply(cond$v, MARGIN = 2, FUN = sum)) %*% 

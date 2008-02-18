@@ -10,13 +10,14 @@ Provides methods for the generic function \code{\link[stats]{logLik}}.
 }
 
 \usage{
-\method{logLik}{dthmm}(object, ...)
-\method{logLik}{mmglm}(object, ...)
-\method{logLik}{mmpp}(object, ...)
+\method{logLik}{dthmm}(object, fortran=TRUE, ...)
+\method{logLik}{mmglm}(object, fortran=TRUE, ...)
+\method{logLik}{mmpp}(object, fortran=TRUE, ...)
 }
 
 \arguments{
   \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mmglm}"} or \code{"\link{mmpp}"}.}
+  \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R\ code.}
   \item{...}{other arguments.}
 }
 

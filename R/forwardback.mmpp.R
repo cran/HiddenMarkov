@@ -1,5 +1,7 @@
 "forwardback.mmpp" <-
 function(tau, Q, delta, lambda, fortran=TRUE){
+    #   note that tau has already been differenced in BaumWelch.mmpp
+    #   IT SHOULD BE CALLED SOMETHING DIFFERENT, SAY dtau
     m <- nrow(Q)
     n <- length(tau)
     Lambda <- diag(lambda)

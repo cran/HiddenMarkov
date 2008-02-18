@@ -37,7 +37,7 @@ When the density function of the response variable is from the exponential famil
 }
 
 \references{
-Charnes, A.; Frome, E.L. & Yu, P.L. (1976). The equivalence of generalized least squares and maximum likelihood estimates in the exponential family. \emph{JASA} \bold{71(353)}, 169--171. URL: \url{http://dx.doi.org/10.2307/2285762}
+Charnes, A.; Frome, E.L. & Yu, P.L. (1976). The equivalence of generalized least squares and maximum likelihood estimates in the exponential family. \emph{JASA} \bold{71(353)}, 169--171. DOI: \url{http://dx.doi.org/10.2307/2285762}
 
 Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{HiddenMarkov}.} Statistics Research Associates, Wellington. URL: \url{http://homepages.paradise.net.nz/david.harte/SSLib/Manuals/notes.pdf}.
 

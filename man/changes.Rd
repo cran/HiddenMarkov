@@ -30,6 +30,14 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{forwardback}}, \code{\link{forwardback.mmpp}} and \code{\link{Estep.mmpp}}: inclusion of all variable sized arrays in the Fortran subroutine call to be compatible with non gfortran compilers (3 Dec 2007); more added for calls to Fortran subroutines \code{multi1} and \code{multi2}. (6 Dec 2007)
 
 \item \code{\link{Estep.mmpp}}: error in Fortran code of loop 6; \code{j1=0} to \code{j1=1}. (5 Dec 2007)
+
+\item \code{\link{BaumWelch.mmpp}}: \code{if (diff < 0) stop ...} to \code{if (diff < 0 & control$posdiff) stop ...}, consistent with \code{\link{BaumWelch.dthmm}}. (11 Dec 2007)
+
+\item \code{\link{logLik.dthmm}}, \code{\link{logLik.mmglm}}, \code{\link{logLik.mmpp}}: \code{for} loop replaced by Fortran code. (15 Feb 2008)
+
+\item \code{\link{dthmm}}: argument \code{discrete} set automatically for known distributions, stops if not set for unknown distributions. (15 Feb 2008)
+
+\item \code{\link{neglogLik}}, \code{\link{Pi2vector}}, \code{\link{vector2Pi}}, \code{\link{Q2vector}}, \code{\link{vector2Q}}: new functions providing an alternative means of calculating maximum likelihood parameter estimates. (18 Feb 2008)
 }}
 
 

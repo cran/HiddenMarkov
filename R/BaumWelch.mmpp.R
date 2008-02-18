@@ -19,9 +19,7 @@ BaumWelch.mmpp <- function (object, control = bwcontrol(), ...){
                                 format="f"), "\n")
             cat("diff =", diff, "\n\n")
         }
-        if (diff < 0){
-            stop("Worse log-likelihood on last iteration")
-        }
+        if (diff < 0 & control$posdiff) stop("Worse log-likelihood on last iteration")
         if (eval(control$converge)) break
         #----  Mstep  ----
         Q <- Q * (diag(1/diag(cond$A)) %*% cond$A)

@@ -2,6 +2,8 @@
 function (tau, Q, delta, lambda, fortran=TRUE) 
 {
     #   scaled version of Ryden (1996)
+    #   note that tau has already been differenced in BaumWelch.mmpp
+    #   IT SHOULD BE CALLED SOMETHING DIFFERENT, SAY dtau
     m <- ncol(Q)
     n <- length(tau)
     x <- forwardback.mmpp(tau, Q, delta, lambda)

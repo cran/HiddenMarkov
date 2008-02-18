@@ -28,13 +28,13 @@ The Markov modulated Poisson process is based on a hidden Markov process in cont
 }
 
 \references{
-Klemm, A.; Lindemann, C. \& Lohmann, M. (2003). Modeling IP traffic using the batch Markovian arrival process. \emph{Performance Evaluation} \bold{54(2)}, 149--173.
+Klemm, A.; Lindemann, C. \& Lohmann, M. (2003). Modeling IP traffic using the batch Markovian arrival process. \emph{Performance Evaluation} \bold{54(2)}, 149--173. DOI: \url{http://dx.doi.org/10.1016/S0166-5316(03)00067-1}
 
-Roberts, W.J.J.; Ephraim, Y. \& Dieguez, E. (2006). On Ryden's EM algorithm for estimating MMPPs. \emph{IEEE Signal Processing Letters} \bold{13(6)}, 373--376.
+Roberts, W.J.J.; Ephraim, Y. \& Dieguez, E. (2006). On Ryden's EM algorithm for estimating MMPPs. \emph{IEEE Signal Processing Letters} \bold{13(6)}, 373--376. DOI: \url{http://dx.doi.org/10.1109/LSP.2006.871709}
 
-Ryden, T. (1994). Parameter estimation for Markov modulated Poisson processes. \emph{Stochastic Models} \bold{10(4)}, 795--829.
+Ryden, T. (1994). Parameter estimation for Markov modulated Poisson processes. \emph{Stochastic Models} \bold{10(4)}, 795--829. DOI: \url{http://dx.doi.org/10.1080/15326349408807323}
 
-Ryden, T. (1996). An EM algorithm for estimation in Markov-modulated Poisson processes. \emph{Computational Statistics & Data Analysis} \bold{21(4)}, 431--447.
+Ryden, T. (1996). An EM algorithm for estimation in Markov-modulated Poisson processes. \emph{Computational Statistics & Data Analysis} \bold{21(4)}, 431--447. DOI: \url{http://dx.doi.org/10.1016/0167-9473(95)00025-9}
 }
 
 \examples{
@@ -45,9 +45,8 @@ Q <- matrix(c(-2,  2,
 #    NULL indicates that we have no data at this point
 x <- mmpp(NULL, Q, delta=c(0, 1), lambda=c(5, 1))
 
-x <- simulate(x, nsim=1000, seed=5)
+x <- simulate(x, nsim=5000, seed=5)
 
-x$delta <- c(0.5, 0.5)
 y <- BaumWelch(x)
 
 print(summary(y))

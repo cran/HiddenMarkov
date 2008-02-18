@@ -8,7 +8,7 @@ Creates a discrete time hidden Markov model object with class \code{"dthmm"}.
 }
 
 \usage{
-dthmm(x, Pi, delta, distn, pm, pn = NULL, discrete = FALSE,
+dthmm(x, Pi, delta, distn, pm, pn = NULL, discrete = NULL,
       nonstat = TRUE)
 }
 
@@ -19,7 +19,7 @@ dthmm(x, Pi, delta, distn, pm, pn = NULL, discrete = FALSE,
   \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a distribution function called \code{"pwxyz"} should be available, in the standard \R\ format (e.g. \code{\link{pnorm}} or \code{\link{ppois}}).}
   \item{pm}{is a list object containing the (Markov dependent) parameter values associated with the distribution of the observed process (see below).}
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see below).}
-  \item{discrete}{is logical, and is \code{TRUE} if \code{distn} is a discrete distribution.}
+  \item{discrete}{is logical, and is \code{TRUE} if \code{distn} is a discrete distribution. Set automatically for distributions already contained in the package.}
   \item{nonstat}{is logical, \code{TRUE} if the homogeneous Markov chain is assumed to be non-stationary, default. See \dQuote{Details} below.}
 }
 
@@ -102,7 +102,7 @@ Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{Hidden
 
 MacDonald, I.L. & Zucchini, W. (1997). \emph{Hidden Markov and Other Models for Discrete-valued Time Series.} Chapman and Hall/CRC, Boca Raton.
 
-Rabiner, L.R. (1989). A tutorial on hidden Markov models and selected applications in speech recognition. \emph{Proceedings of the IEEE} \bold{77(2)}, 257--286. URL: \url{http://dx.doi.org/10.1109/5.18626}.
+Rabiner, L.R. (1989). A tutorial on hidden Markov models and selected applications in speech recognition. \emph{Proceedings of the IEEE} \bold{77(2)}, 257--286. DOI: \url{http://dx.doi.org/10.1109/5.18626}.
 
 Zucchini, W. (2005). \emph{Hidden Markov Models Short Course, 3--4 April 2005.} Macquarie University, Sydney.
 }

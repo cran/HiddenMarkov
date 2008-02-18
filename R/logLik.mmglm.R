@@ -1,5 +1,5 @@
-"logLik.mmglm" <- function(object, ...){
+"logLik.mmglm" <- function(object, fortran=TRUE, ...){
     object <- as.dthmm(object)
-    return(logLik.dthmm(object))
+    return(logLik.dthmm(object, fortran=fortran))
 }
 

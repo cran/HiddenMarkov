@@ -8,7 +8,7 @@ c     a is replaced by the matrix product of a*b
       j = 1
       do while(j .le. m)
           k = 1
-          c(j) = 0
+          c(j) = 0.0
           do while(k .le. m)
               c(j) = c(j) + a(k)*b(k, j)
               k = k+1
@@ -33,7 +33,7 @@ c     b is replaced by the matrix product of a*b
       j = 1
       do while(j .le. m)
           k = 1
-          c(j) = 0
+          c(j) = 0.0
           do while(k .le. m)
               c(j) = c(j) + a(j, k)*b(k)
               k = k+1
@@ -61,7 +61,7 @@ c     c is the matrix product of a*b
           j = 1
           do while(j .le. r)
               k = 1
-              c(i, j) = 0
+              c(i, j) = 0.0
               do while(k .le. q)
                   c(i, j) = c(i, j) + a(i, k)*b(k, j)
                   k = k+1

@@ -44,7 +44,7 @@ The functions \code{Mstep.beta}, \code{Mstep.binom}, \code{Mstep.exp}, \code{Mst
 \item{\code{Mstep.beta}}{The \R\ functions for the Beta distribution have arguments \code{shape1} and \code{shape2}; and the density also has \code{ncp}. We only use \code{shape1} and \code{shape2}, i.e. \code{ncp} is assumed to be zero. Different combinations of \code{"shape1"} and \code{"shape2"} can be \dQuote{time} dependent (specified in \code{pn}) and Markov dependent (specified in \code{pm}). However, each should only be specified in one (see topic \code{\link{dthmm}}).
 }
 
-\item{\code{Mstep.binomial}}{The \code{size} argument of the binomial distribution should always be specified in the \code{pn} argument (see topic \code{\link{dthmm}}).
+\item{\code{Mstep.binom}}{The \code{size} argument of the binomial distribution should always be specified in the \code{pn} argument (see topic \code{\link{dthmm}}).
 }
 
 \item{\code{Mstep.gamma}}{The \R\ functions for the Gamma distribution have arguments \code{shape}, \code{rate} and \code{scale}. Since \code{scale} is redundant, we only use \code{shape} and \code{rate}. Different combinations of \code{"shape"} and \code{"rate"} can be \dQuote{time} dependent (specified in \code{pn}) and Markov dependent (specified in \code{pm}). However, each should only be specified in one (see topic \code{\link{dthmm}}).
