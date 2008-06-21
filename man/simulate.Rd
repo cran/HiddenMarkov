@@ -17,7 +17,7 @@ These functions provide methods for the generic function \code{\link[stats]{simu
 }
 
 \arguments{
-  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mchain}"}, \code{"\link{mmglm}"} or \code{"\link{mmpp}"}}
+  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mchain}"}, \code{"\link{mmglm}"} or \code{"\link{mmpp}"}.}
   \item{nsim}{number of points to simulate.}
   \item{seed}{seed for the random number generator.}
   \item{\dots}{other arguments.}

@@ -1,15 +1,15 @@
-\name{changes}
-\alias{changes}
-\title{Changes Made to the Package}
+\name{Changes}
+\alias{Changes}
+\title{Changes Made to Package HiddenMarkov}
 \description{
 This page contains a listing of recent changes made to the package.
 }
 
 \details{
 \enumerate{
-\item Since we have included different classes of HMMs (see \code{\link{dthmm}}, \code{\link{mmglm}} and \code{\link{mmpp}}), it is much tidier to use an object orientated approach. This ensures that the functions across all models follow a more consistent naming convention, and also the argument list for the different model functions are more simple and consistent (see \code{\link{Overview}}). (14 Sep 2007)
+\item Since we have included different classes of HMMs (see \code{\link{dthmm}}, \code{\link{mmglm}} and \code{\link{mmpp}}), it is much tidier to use an object orientated approach. This ensures that the functions across all models follow a more consistent naming convention, and also the argument list for the different model functions are more simple and consistent (see \code{\link{HiddenMarkov}}). (14 Sep 2007)
 
-\item The main tasks (model fitting, residuals, simulation, Viterbi, etc) can now be called by generic functions (see topic \code{\link{Overview}}). The package documentation has been rearranged so that these generic functions contain the documentation for all model types (e.g. see \code{\link{BaumWelch}}). (14 Sep 2007)
+\item The main tasks (model fitting, residuals, simulation, Viterbi, etc) can now be called by generic functions (see topic \code{\link{HiddenMarkov}}). The package documentation has been rearranged so that these generic functions contain the documentation for all model types (e.g. see \code{\link{BaumWelch}}). (14 Sep 2007)
 
 \item There are a number of functions, still contained in the package, that are obsolete. This is either because they do not easily fit into the current naming convention used to implement the more object orientated approach, or their argument list is slightly complicated. These functions have been grouped in the topics \code{\link{dthmm.obsolete}} and \code{\link{mmpp.obsolete}}. (14 Sep 2007)
 
@@ -38,6 +38,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{dthmm}}: argument \code{discrete} set automatically for known distributions, stops if not set for unknown distributions. (15 Feb 2008)
 
 \item \code{\link{neglogLik}}, \code{\link{Pi2vector}}, \code{\link{vector2Pi}}, \code{\link{Q2vector}}, \code{\link{vector2Q}}: new functions providing an alternative means of calculating maximum likelihood parameter estimates. (18 Feb 2008)
+
+\item \code{\link{dthmm}}: argument \code{nonstat} was not set correctly. (21 Jun 2008)
 }}
 
 

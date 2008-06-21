@@ -9,7 +9,7 @@ function (x, Pi, delta, distn, pm, pn = NULL, discrete = NULL,
         else stop("parameter discrete must be used when applying user distributions")
     }
     y <- c(list(x=x, Pi=Pi, delta=delta, distn=distn, pm=pm,
-                pn=pn, discrete=discrete, nonstat=TRUE))
+                pn=pn, discrete=discrete, nonstat=nonstat))
     class(y) <- "dthmm"
     return(y)
 }

@@ -1,7 +1,7 @@
-\name{Overview}
-\alias{Overview}
+\name{HiddenMarkov}
+\alias{HiddenMarkov}
 
-\title{Overview of Package}
+\title{Overview of Package HiddenMarkov}
 
 \description{
 In this topic we give an overview of the package.

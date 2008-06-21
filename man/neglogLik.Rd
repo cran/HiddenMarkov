@@ -25,7 +25,7 @@ The function \code{\link{nlm}} requires the parameters over which the function i
 }
 
 \value{
-Value of the log-likelihood.
+Value of the log-likelihood times negative one.
 }
 
 \seealso{\code{\link[stats]{nlm}}, \code{\link[stats]{optim}}, \code{\link{Transform.Parameters}}, \code{\link{BaumWelch}}}
