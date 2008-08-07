@@ -43,13 +43,6 @@ An object of class \code{"\link{dthmm}"} will also contain
 \code{\link{logLik}}, \code{\link{residuals}}, \code{\link{simulate}}, \code{\link{summary}}
 , \code{\link{neglogLik}}}
 
-\references{
-Baum, L.E.; Petrie, T.; Soules, G. \& Weiss, N. (1970). A maximization technique occurring in the statistical analysis of probabilistic functions of Markov chains. \emph{Annals of Mathematical Statistics} \bold{41(1)}, 164--171. DOI: \url{http://dx.doi.org/10.1214/aoms/1177697196}
-
-Dempster, A.P.; Laird, N.M. \& Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38.
-
-Hartley, H.O. (1958). Maximum likelihood estimation from incomplete data. \emph{Biometrics} \bold{14(2)}, 174--194. DOI: \url{http://dx.doi.org/10.2307/2527783}
-}
 
 \keyword{methods}
 \keyword{optimize}

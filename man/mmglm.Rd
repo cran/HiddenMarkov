@@ -36,13 +36,6 @@ If \code{family == "binomial"} then the response variable \code{y} is interprete
 When the density function of the response variable is from the exponential family (Charnes et al, 1976, Eq. 2.1), the likelihood function (Charnes et al, 1976, Eq. 2.4) can be maximised by using iterative weighted least squares (Charnes et al, 1976, Eq. 1.1 and 1.2). This is the method used by the \R function \code{\link{glm}}. In this Markov modulated version of the model, the third term of the complete data log-likelihood, as given in Harte (2006, \S 2.3), needs to be maximised. This is simply the sum of the individual log-likelihood contributions of the response variable weighted by the Markov state probabilities calculated in the E-step. This can also be maximised using iterative least squares by passing these additional weights (Markov state probabilities) into the \code{\link{glm}} function.
 }
 
-\references{
-Charnes, A.; Frome, E.L. & Yu, P.L. (1976). The equivalence of generalized least squares and maximum likelihood estimates in the exponential family. \emph{JASA} \bold{71(353)}, 169--171. DOI: \url{http://dx.doi.org/10.2307/2285762}
-
-Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{HiddenMarkov}.} Statistics Research Associates, Wellington. URL: \url{http://homepages.paradise.net.nz/david.harte/SSLib/Manuals/notes.pdf}.
-
-McCullagh, P. \& Nelder, J.A. (1989). \emph{Generalized Linear Models (2nd Edition).} Chapman and Hall, London.
-}
 
 \examples{
 delta <- c(0,1)

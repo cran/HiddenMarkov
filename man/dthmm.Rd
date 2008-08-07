@@ -95,17 +95,6 @@ Hence the \dQuote{complete data likelihood} is split into three terms: the first
 When the hidden Markov chain is assumed to be stationary, \eqn{\delta = \Pi^\prime \delta} (see topic \code{\link{compdelta}}), and then the first two terms of \eqn{\log L_c} determine the transition probabilities \eqn{\Pi}. This raises more complicated numerical problems, as the first term is effectively a constraint. We deal with this in a slightly ad-hoc manner by effectively disregarding the first term, which is assumed to be relatively small. In the M-step, the transition matrix is determined by the second term, then \eqn{\delta} is estimated using the relation \eqn{\delta = \delta \Pi}.
 }
 
-\references{
-Elliott, R.J.; Aggoun, L. & Moore, J.B. (1994). \emph{Hidden Markov Models: Estimation and Control.} Springer-Verlag, New York.
-
-Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{HiddenMarkov}.} Statistics Research Associates, Wellington. URL: \url{http://homepages.paradise.net.nz/david.harte/SSLib/Manuals/notes.pdf}.
-
-MacDonald, I.L. & Zucchini, W. (1997). \emph{Hidden Markov and Other Models for Discrete-valued Time Series.} Chapman and Hall/CRC, Boca Raton.
-
-Rabiner, L.R. (1989). A tutorial on hidden Markov models and selected applications in speech recognition. \emph{Proceedings of the IEEE} \bold{77(2)}, 257--286. DOI: \url{http://dx.doi.org/10.1109/5.18626}.
-
-Zucchini, W. (2005). \emph{Hidden Markov Models Short Course, 3--4 April 2005.} Macquarie University, Sydney.
-}
 
 \examples{
 #-----  Test Gaussian Distribution -----

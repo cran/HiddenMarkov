@@ -1,5 +1,5 @@
-\name{mmpp.obsolete}
-\alias{mmpp.obsolete}
+\name{HiddenMarkov-mmpp-deprecated}
+\alias{HiddenMarkov-mmpp-deprecated}
 \alias{backward0.mmpp}
 \alias{forward0.mmpp}
 \alias{logLikmmpp}
@@ -8,10 +8,10 @@
 \alias{Baum.Welch0.mmpp}
 \alias{sim.mmpp}
 
-\title{Markov Modulated Poisson Process - Obsolete Functions}
+\title{Markov Modulated Poisson Process - deprecated Functions}
 
 \description{
-These functions are obsolete and will ultimately be removed from the package. Please change to the revised versions: \code{\link{BaumWelch}}, \code{\link{Estep.mmpp}}, \code{\link{forwardback.mmpp}}, \code{\link[HiddenMarkov]{simulate}} or \code{\link{logLik}}.
+These functions are deprecated and will ultimately be removed from the package. Please change to the revised versions: \code{\link{BaumWelch}}, \code{\link{Estep.mmpp}}, \code{\link{forwardback.mmpp}}, \code{\link[HiddenMarkov]{simulate}} or \code{\link{logLik}}.
 }
 
 \usage{
@@ -52,5 +52,5 @@ The functions with a suffix of zero are non-scaled, and hence will have numerica
 These functions use the algorithm given by Ryden (1996) based on eigenvalue decompositions.
 }
 
-\keyword{misc}
+\keyword{internal}
 

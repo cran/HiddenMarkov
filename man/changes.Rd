@@ -11,7 +11,7 @@ This page contains a listing of recent changes made to the package.
 
 \item The main tasks (model fitting, residuals, simulation, Viterbi, etc) can now be called by generic functions (see topic \code{\link{HiddenMarkov}}). The package documentation has been rearranged so that these generic functions contain the documentation for all model types (e.g. see \code{\link{BaumWelch}}). (14 Sep 2007)
 
-\item There are a number of functions, still contained in the package, that are obsolete. This is either because they do not easily fit into the current naming convention used to implement the more object orientated approach, or their argument list is slightly complicated. These functions have been grouped in the topics \code{\link{dthmm.obsolete}} and \code{\link{mmpp.obsolete}}. (14 Sep 2007)
+\item There are a number of functions, still contained in the package, that are obsolete. This is either because they do not easily fit into the current naming convention used to implement the more object orientated approach, or their argument list is slightly complicated. These functions have been grouped in the topics \code{dthmm.obsolete} and \code{mmpp.obsolete}. (14 Sep 2007)
 
 \item There are various \emph{second level} functions. For example, the model fitting is achieved by the generic \code{\link{BaumWelch}} function. However, this will call functions to do the E-step, M-step, forward and backward probabilities, and so on. At the moment, these \emph{second level} functions have not been modified into an object orientated approach. It is not clear at this point whether this would be advantageous. If one went down this route, then one would probably group all of the E-step functions (for all models) under the same topic. If not, then it may be best to group all second level functions for each model under the same topic (e.g. \code{\link{forwardback}}, \code{\link{probhmm}} and \code{\link{Estep}} would be grouped together, being the second level functions for the \code{\link{dthmm}} model). (14 Sep 2007)
 
@@ -40,6 +40,19 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{neglogLik}}, \code{\link{Pi2vector}}, \code{\link{vector2Pi}}, \code{\link{Q2vector}}, \code{\link{vector2Q}}: new functions providing an alternative means of calculating maximum likelihood parameter estimates. (18 Feb 2008)
 
 \item \code{\link{dthmm}}: argument \code{nonstat} was not set correctly. (21 Jun 2008)
+
+\item Hyperlinks on package vignettes page. (22 Jun 2008)
+
+\item \code{\link{mmpp}}: argument \code{nonstat} was not set correctly. (23 Jun 2008)
+
+\item The manual pages \code{\link{HiddenMarkov-dthmm-deprecated}} and \code{\link{HiddenMarkov-mmpp-deprecated}} have been given a keyword of \dQuote{internal}. This hides them from the listing of package functions. (3 Jul 2008)
+
+\item All cited references are now only listed in the topic \code{\link{HiddenMarkov}}. (3 Jul 2008)
+
+\item \code{\link{neglogLik}}: argument \code{updatep} has been renamed to \code{pmap}. (9 Jul 2008)
+
+\item \code{\link{neglogLik}}: format of this function changed to be consistent with that in package \pkg{PtProcess}. Argument \code{p} renamed as \code{params}. (07 Aug 2008)
+
 }}
 
 

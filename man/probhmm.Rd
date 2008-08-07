@@ -32,9 +32,6 @@ In the programming code, note the subtraction of the mean. This is to stop under
 A vector containing the probability.
 }
 
-\references{
-Zucchini, W. (2005). \emph{Hidden Markov Models Short Course, 3--4 April 2005.} Macquarie University, Sydney.
-}
 
 \seealso{\code{\link{residuals}}}
 

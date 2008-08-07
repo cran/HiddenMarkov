@@ -7,21 +7,25 @@ Calculates the log-likelihood multiplied by negative one. It is in a format that
 }
 
 \usage{
-neglogLik(p, object, updatep)
+neglogLik(params, object, pmap)
 }
 
 \arguments{
-  \item{p}{a vector of revised parameter values.}
+  \item{params}{a vector of revised parameter values.}
   \item{object}{an object of class \code{"\link{dthmm}"}, \code{"\link{mmglm}"}, or \code{"\link{mmpp}"}.}
-  \item{updatep}{a user provided function mapping the revised parameter values \code{p} into the appropriate locations in \code{object}.}
+  \item{pmap}{a user provided function mapping the revised (or restricted) parameter values \code{p} into the appropriate locations in \code{object}.}
 }
 
 \details{
-This function is in a format that can be used with the two functions \code{\link[stats]{nlm}} and \code{\link[stats]{optim}} (see Examples below). This provides alternative methods of estimating the maximum likelihood parameter estimates to the EM provided by \code{\link{BaumWelch}} including Newton type methods and grid searches. It can also be used to restrict estimation to a subset of parameters.
+This function is in a format that can be used with the two functions \code{\link[stats]{nlm}} and \code{\link[stats]{optim}} (see Examples below). This provides alternative methods of estimating the maximum likelihood parameter values, to that of the EM algorithm provided by \code{\link{BaumWelch}}, including Newton type methods and grid searches. It can also be used to restrict estimation to a subset of parameters.
 
-The EM algorithm is very stable when starting from poor initial values but convergence is very slow in close proximity to the solution. Newton type methods are very sensitive to initial conditions but converge much more quickly in close proximity to the solution. This suggests initially using the EM and then switching to Newton type methods (see Examples below).
+The EM algorithm is relatively stable when starting from poor initial values but convergence is very slow in close proximity to the solution. Newton type methods are very sensitive to initial conditions but converge much more quickly in close proximity to the solution. This suggests initially using the EM algorithm and then switching to Newton type methods (see Examples below).
 
-The function \code{\link{nlm}} requires the parameters over which the function is to be maximised to be specified as a vector. Some functions are provided to partially achieve this (see topic \code{\link{Transform.Parameters}}).
+The maximisation of the model likelihood function can be restricted to be over a subset of the model parameters. Other parameters will then be fixed at the values stored in the model \code{object}. Let \eqn{\Theta} denote the model parameter space, and let \eqn{\Psi} denote the parameter sub-space (\eqn{\Psi \subseteq \Theta}) over which the likelihood function is to be maximised. The argument \code{params} contains values in \eqn{\Psi}, and \code{pmap} is assigned a function that maps these values into the model parameter space \eqn{\Theta}. See \dQuote{Examples} below.
+
+The mapping function assigned to \code{pmap} can also be made to impose restrictions on the domain of the parameter space \eqn{\Psi} so that the minimiser cannot jump to values such that \eqn{\Psi \not\subseteq \Theta}. For example, if a particular parameter must be positive, one can work with a transformed parameter that can take any value on the real line, with the model parameter being the exponential of this transformed parameter. Similarly a modified logit like transform can be used to ensure that parameter values remain within a fixed interval with finite boundaries. Examples of these situations can be found in the  \dQuote{Examples} below.
+
+Some functions are provided in the topic \code{\link{Transform.Parameters}} that may provide useful components within the user provided function assigned to \code{pmap}.
 }
 
 \value{
@@ -63,7 +67,7 @@ x1 <- BaumWelch(x, control=bwcontrol(maxiter=1000, tol=0.01))
 p <- c(Pi2vector(x1$Pi), log(x1$pm$rate))
 
 #    complete estimation using nlm
-z <- nlm(neglogLik, p, object=x, updatep=allmap,
+z <- nlm(neglogLik, p, object=x, pmap=allmap,
          print.level=2, gradtol=0.000001, iterlim=500)
 
 #    dthmm object with estimated parameter values from nlm
@@ -98,7 +102,7 @@ offdiagmap <- function(y, p){
     return(y)
 }
 
-z <- nlm(neglogLik, c(0, 0, 0), object=x, updatep=offdiagmap,
+z <- nlm(neglogLik, c(0, 0, 0), object=x, pmap=offdiagmap,
          print.level=2, gradtol=0.000001)
 
 #    x1 contains revised parameter estimates
@@ -141,7 +145,7 @@ x1 <- BaumWelch(x, control=bwcontrol(maxiter=1000, tol=0.01))
 p <- c(Q2vector(x1$Q), log(x1$lambda))
 
 #    complete estimation using nlm
-z <- nlm(neglogLik, p, object=x, updatep=allmap,
+z <- nlm(neglogLik, p, object=x, pmap=allmap,
          print.level=2, gradtol=0.000001, iterlim=500)
 
 #    mmpp object with estimated parameter values from nlm

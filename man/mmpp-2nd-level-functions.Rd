@@ -1,4 +1,5 @@
-\name{mmpp.misc}
+\name{mmpp-2nd-level-functions}
+\alias{mmpp-2nd-level-functions}
 \alias{forwardback.mmpp}
 \alias{Estep.mmpp}
 

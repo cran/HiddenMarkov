@@ -43,13 +43,7 @@ and
 Further, the diagonal elements of the product matrix \eqn{A B^\prime} are all the same, taking the value of the log-likelihood.
 }
 
-\references{
-MacDonald, I.L. & Zucchini, W. (1997). \emph{Hidden Markov and Other Models for Discrete-valued Time Series.} Chapman and Hall/CRC, Boca Raton.
-
-Zucchini, W. (2005). \emph{Hidden Markov Models Short Course, 3--4 April 2005.} Macquarie University, Sydney.
-}
-
-\author{David Harte, 2005. The algorithm has been taken from Zucchini (2005).}
+\author{The algorithm has been taken from Zucchini (2005).}
 
 \seealso{
 \code{\link{logLik}}

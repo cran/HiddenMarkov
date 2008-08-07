@@ -1,5 +1,5 @@
-\name{dthmm.obsolete}
-\alias{dthmm.obsolete}
+\name{HiddenMarkov-dthmm-deprecated}
+\alias{HiddenMarkov-dthmm-deprecated}
 \alias{Baum.Welch}
 \alias{residualshmm}
 \alias{sim.hmm}
@@ -7,10 +7,10 @@
 \alias{sim.markov}
 \alias{Viterbihmm}
 
-\title{Discrete Time HMM - Obsolete Functions}
+\title{Discrete Time HMM - Deprecated Functions}
 
 \description{
-These functions are obsolete and will ultimately be removed from the package. Please change to the object orientated versions: \code{\link{BaumWelch}}, \code{\link[HiddenMarkov]{residuals}}, \code{\link[HiddenMarkov]{simulate}} or \code{\link{Viterbi}}.
+These functions are deprecated and will ultimately be removed from the package. Please change to the object orientated versions: \code{\link{BaumWelch}}, \code{\link[HiddenMarkov]{residuals}}, \code{\link[HiddenMarkov]{simulate}} or \code{\link{Viterbi}}.
 }
 
 \usage{
@@ -45,4 +45,4 @@ Viterbihmm(x, Pi, delta, distn, pm, pn = NULL)
 The function \code{sim.hmm1} will run faster for cases where the argument \code{pn} is \code{NULL}.
 }
 
-\keyword{misc}
+\keyword{internal}

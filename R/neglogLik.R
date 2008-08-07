@@ -1,4 +1,4 @@
-neglogLik <- function(p, object, updatep){
-    object <- updatep(object, p)
+neglogLik <- function(params, object, pmap){
+    object <- pmap(object, params)
     return(-logLik(object))
 }

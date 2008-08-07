@@ -39,9 +39,6 @@ and \code{v[i,j,k]} is
 where \eqn{j,k = 1, \cdots, m} and \eqn{i = 1, \cdots, n}.
 }
 
-\references{
-Zucchini, W. (2005). \emph{Hidden Markov Models Short Course, 3--4 April 2005.} Macquarie University, Sydney.
-}
 
 \author{The algorithm has been taken from Zucchini (2005).}
 
