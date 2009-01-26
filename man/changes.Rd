@@ -53,6 +53,8 @@ This page contains a listing of recent changes made to the package.
 
 \item \code{\link{neglogLik}}: format of this function changed to be consistent with that in package \pkg{PtProcess}. Argument \code{p} renamed as \code{params}. (07 Aug 2008)
 
+\item \code{\link{mmglm}}: remove some LaTeX specific formatting to be compatible with \R\ 2.9.0. (26 Jan 2009)
+
 }}
 
 
