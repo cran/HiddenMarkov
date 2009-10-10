@@ -1,4 +1,4 @@
-\name{Changes}
+\name{Change Log}
 \alias{Changes}
 \title{Changes Made to Package HiddenMarkov}
 \description{
@@ -55,6 +55,7 @@ This page contains a listing of recent changes made to the package.
 
 \item \code{\link{mmglm}}: remove some LaTeX specific formatting to be compatible with \R\ 2.9.0. (26 Jan 2009)
 
+\item \code{\link{Viterbi}}: Correct hyperlink to base function \code{which.max}. (10 Oct 2009)
 }}
 
 

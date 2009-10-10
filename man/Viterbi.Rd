@@ -25,7 +25,7 @@ The purpose of the Viterbi algorithm is to \emph{globally decode} the underlying
 (k_1^*, \cdots, k_n^*) = _{\stackrel{\mbox{argmax}}{{k_1, \cdots, k_n \in \{1, 2, \cdots, m\}}}} \Pr\{ C_1=k_1, \cdots, C_n=k_n \,|\, X^{(n)}=x^{(n)} \}\,.
 }
 
-The algorithm has been taken from Zucchini (2005), however, we calculate sums of the logarithms of probabilities rather than products of probabilities. This lessens the chance of numerical underflow. Given that the logarithmic function is monotonically increasing, the \emph{argmax} will still be the same. Note that \emph{argmax} can be evaluated with the \R\ function \code{\link[base]{which.max}}.
+The algorithm has been taken from Zucchini (2005), however, we calculate sums of the logarithms of probabilities rather than products of probabilities. This lessens the chance of numerical underflow. Given that the logarithmic function is monotonically increasing, the \emph{argmax} will still be the same. Note that \emph{argmax} can be evaluated with the \R\ function \code{\link[base:which.min]{which.max}}.
 
 Determining the \emph{a posteriori} most probable state at time \eqn{i} is referred to as \emph{local decoding}, i.e.
 \deqn{
