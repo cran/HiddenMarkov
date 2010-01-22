@@ -7,7 +7,7 @@ This page contains a listing of recent changes made to the package.
 
 \details{
 \enumerate{
-\item Since we have included different classes of HMMs (see \code{\link{dthmm}}, \code{\link{mmglm}} and \code{\link{mmpp}}), it is much tidier to use an object orientated approach. This ensures that the functions across all models follow a more consistent naming convention, and also the argument list for the different model functions are more simple and consistent (see \code{\link{HiddenMarkov}}). (14 Sep 2007)
+\item Since we have included different classes of HMMs (see \code{\link{dthmm}}, \code{\link{mmglm0}} and \code{\link{mmpp}}), it is much tidier to use an object orientated approach. This ensures that the functions across all models follow a more consistent naming convention, and also the argument list for the different model functions are more simple and consistent (see \code{\link{HiddenMarkov}}). (14 Sep 2007)
 
 \item The main tasks (model fitting, residuals, simulation, Viterbi, etc) can now be called by generic functions (see topic \code{\link{HiddenMarkov}}). The package documentation has been rearranged so that these generic functions contain the documentation for all model types (e.g. see \code{\link{BaumWelch}}). (14 Sep 2007)
 
@@ -33,7 +33,7 @@ This page contains a listing of recent changes made to the package.
 
 \item \code{\link{BaumWelch.mmpp}}: \code{if (diff < 0) stop ...} to \code{if (diff < 0 & control$posdiff) stop ...}, consistent with \code{\link{BaumWelch.dthmm}}. (11 Dec 2007)
 
-\item \code{\link{logLik.dthmm}}, \code{\link{logLik.mmglm}}, \code{\link{logLik.mmpp}}: \code{for} loop replaced by Fortran code. (15 Feb 2008)
+\item \code{\link{logLik.dthmm}}, \code{\link{logLik.mmglm0}}, \code{\link{logLik.mmpp}}: \code{for} loop replaced by Fortran code. (15 Feb 2008)
 
 \item \code{\link{dthmm}}: argument \code{discrete} set automatically for known distributions, stops if not set for unknown distributions. (15 Feb 2008)
 
@@ -53,9 +53,15 @@ This page contains a listing of recent changes made to the package.
 
 \item \code{\link{neglogLik}}: format of this function changed to be consistent with that in package \pkg{PtProcess}. Argument \code{p} renamed as \code{params}. (07 Aug 2008)
 
-\item \code{\link{mmglm}}: remove some LaTeX specific formatting to be compatible with \R\ 2.9.0. (26 Jan 2009)
+\item \code{\link{mmglm0}}: remove some LaTeX specific formatting to be compatible with \R 2.9.0. (26 Jan 2009)
 
 \item \code{\link{Viterbi}}: Correct hyperlink to base function \code{which.max}. (10 Oct 2009)
+
+\item Tidied HTML representation of equations in manual pages. (15 Dec 2009)
+
+\item \code{mmglm}: Renamed to \code{\link{mmglm0}}, new version \code{\link{mmglm1}}. See manual page for more details. (5 Jan 2010)
+
+\item \code{\link{mmglmlong1}}: new function for longitudinal data. (18 Jan 2010)
 }}
 
 
@@ -65,7 +71,7 @@ This page contains a listing of recent changes made to the package.
 
 \item A number of the original functions have names that are too general. For example \code{\link{forwardback}} calculates the forward-backward probabilities, but only for the model \code{\link{dthmm}}. The corresponding function for the \code{\link{mmpp}} model is \code{\link{forwardback.mmpp}}. It would be more consistent to attach to these original functions a \code{dthmm} suffix.
 
-\item The demonstration examples are all for \code{\link{dthmm}}. Also need some for \code{\link{mmglm}} and \code{\link{mmpp}}.
+\item The demonstration examples are all for \code{\link{dthmm}}. Also need some for \code{\link{mmglm0}} and \code{\link{mmpp}}.
 }}
 
 \keyword{documentation}

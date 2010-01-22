@@ -1,7 +1,7 @@
 \name{bwcontrol}
 \alias{bwcontrol}
 
-\title{Control Parameters for the Baum Welch Algorithm}
+\title{Control Parameters for Baum Welch Algorithm}
 
 \description{
 Creates a list of parameters that control the operation of \code{\link{BaumWelch}}.

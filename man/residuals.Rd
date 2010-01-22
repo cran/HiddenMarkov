@@ -1,9 +1,9 @@
 \name{residuals}
 \alias{residuals}
 \alias{residuals.dthmm}
-\alias{residuals.mmglm}
+\alias{residuals.mmglm0}
 
-\title{Residuals of Hidden Markov Models}
+\title{Residuals of Hidden Markov Model}
 
 \description{
 Provides methods for the generic function \code{\link[stats]{residuals}}. There is currently no method for objects of class \code{"\link{mmpp}"}.
@@ -11,22 +11,22 @@ Provides methods for the generic function \code{\link[stats]{residuals}}. There 
 
 \usage{
 \method{residuals}{dthmm}(object, ...)
-\method{residuals}{mmglm}(object, ...)
+\method{residuals}{mmglm0}(object, ...)
 }
 
 \arguments{
-  \item{object}{an object with class \code{\link{dthmm}} or \code{\link{mmglm}}. There is not yet a method for \code{\link{mmpp}}.}
+  \item{object}{an object with class \code{\link{dthmm}} or \code{\link{mmglm0}}. There is not yet a method for \code{\link{mmpp}}.}
   \item{...}{other arguments.}
 }
 
 \details{
-For objects of class \code{"\link{dthmm}"} or \code{"\link{mmglm}"} the calculated residuals are pseudo residuals. Under satisfactory conditions they have an approximate standard normal distribution.
+For objects of class \code{"\link{dthmm}"} or \code{"\link{mmglm0}"} the calculated residuals are pseudo residuals. Under satisfactory conditions they have an approximate standard normal distribution.
 
 Initially the function \code{\link{probhmm}} is called. If the model fits satisfactorily, the returned values should be approximately uniformly distributed. Hence by applying the function \code{\link[stats:Normal]{qnorm}}, the resultant \dQuote{residuals} should have an approximate standard normal distribution.
 
 When the distribution (observed) is discrete an adjustment is made. However, if relatively few of the possible outcomes are observed, the pseudo residuals will be rather poorly described by the standard normal distribution; see the Poisson example below.
 
-The code for the methods \code{"\link{dthmm}"} and \code{"\link{mmglm}"} can be viewed by typing \code{residuals.dthmm} or \code{residuals.mmglm}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"} and \code{"\link{mmglm0}"} can be viewed by typing \code{residuals.dthmm} or \code{residuals.mmglm0}, respectively, on the \R command line.
 }
 
 \value{

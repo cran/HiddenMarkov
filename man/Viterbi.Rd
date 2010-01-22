@@ -1,9 +1,9 @@
 \name{Viterbi}
 \alias{Viterbi}
 \alias{Viterbi.dthmm}
-\alias{Viterbi.mmglm}
+\alias{Viterbi.mmglm0}
 
-\title{Viterbi Algorithm for Hidden Markov Model Objects}
+\title{Viterbi Algorithm for Hidden Markov Model}
 
 \description{
 Provides methods for the generic function \code{\link{Viterbi}}. This predicts the most likely sequence of Markov states given the observed dataset. There is currently no method for objects of class \code{"\link{mmpp}"}.
@@ -11,33 +11,37 @@ Provides methods for the generic function \code{\link{Viterbi}}. This predicts t
 
 \usage{
 \method{Viterbi}{dthmm}(object, ...)
-\method{Viterbi}{mmglm}(object, ...)
+\method{Viterbi}{mmglm0}(object, ...)
 }
 
 \arguments{
-  \item{object}{an object with class \code{"\link{dthmm}"} or \code{"\link{mmglm}"}.}
+  \item{object}{an object with class \code{"\link{dthmm}"} or \code{"\link{mmglm0}"}.}
   \item{...}{other arguments.}
 }
 
 \details{
-The purpose of the Viterbi algorithm is to \emph{globally decode} the underlying hidden Markov state at each time point. It does this by determining the sequence of states \eqn{(k_1^*, \cdots, k_n^*)} which maximises the joint distribution of the hidden states given the entire observed process, i.e.
+The purpose of the Viterbi algorithm is to \emph{globally decode} the underlying hidden Markov state at each time point. It does this by determining the sequence of states \eqn{(k_1^*, \cdots, k_n^*)}{(k_1^*, ..., k_n^*)} which maximises the joint distribution of the hidden states given the entire observed process, i.e.
 \deqn{
 (k_1^*, \cdots, k_n^*) = _{\stackrel{\mbox{argmax}}{{k_1, \cdots, k_n \in \{1, 2, \cdots, m\}}}} \Pr\{ C_1=k_1, \cdots, C_n=k_n \,|\, X^{(n)}=x^{(n)} \}\,.
+}{
+(k_1^*, ..., k_n^*) = argmax Pr{ C_1=k_1, ..., C_n=k_n | X^{(n)}=x^{(n)} } .
 }
 
-The algorithm has been taken from Zucchini (2005), however, we calculate sums of the logarithms of probabilities rather than products of probabilities. This lessens the chance of numerical underflow. Given that the logarithmic function is monotonically increasing, the \emph{argmax} will still be the same. Note that \emph{argmax} can be evaluated with the \R\ function \code{\link[base:which.min]{which.max}}.
+The algorithm has been taken from Zucchini (2005), however, we calculate sums of the logarithms of probabilities rather than products of probabilities. This lessens the chance of numerical underflow. Given that the logarithmic function is monotonically increasing, the \emph{argmax} will still be the same. Note that \emph{argmax} can be evaluated with the \R function \code{\link[base:which.min]{which.max}}.
 
 Determining the \emph{a posteriori} most probable state at time \eqn{i} is referred to as \emph{local decoding}, i.e.
 \deqn{
 k_i^* = _{\stackrel{\mbox{argmax}}{k \in \{1, 2, \cdots, m\}}} \Pr\{ C_i=k \,|\, X^{(n)}=x^{(n)} \}\,.
+}{
+k_i^* = argmax Pr{ C_i=k | X^{(n)}=x^{(n)} } .
 }
 Note that the above probabilities are calculated by the function \code{\link{Estep}}, and are contained in \code{u[i,j]} (output from \code{Estep}), i.e. \eqn{k_i^*} is simply \code{which.max(u[i,])}.
 
-The code for the methods \code{"\link{dthmm}"} and \code{"\link{mmglm}"} can be viewed by typing \code{Viterbi.dthmm} or \code{Viterbi.mmglm}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"} and \code{"\link{mmglm0}"} can be viewed by typing \code{Viterbi.dthmm} or \code{Viterbi.mmglm0}, respectively, on the \R command line.
 }
 
 \value{
-A vector of length \eqn{n} containing integers (\eqn{1, \cdots, m}) representing the hidden Markov states for each node of the chain.
+A vector of length \eqn{n} containing integers (\eqn{1, \cdots, m}{1, ..., m}) representing the hidden Markov states for each node of the chain.
 }
 
 \examples{

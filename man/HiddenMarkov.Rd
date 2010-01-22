@@ -1,5 +1,6 @@
 \name{HiddenMarkov}
 \alias{HiddenMarkov}
+\docType{package}
 
 \title{Overview of Package HiddenMarkov}
 
@@ -14,7 +15,7 @@ The classes of models currently fitted by the package are listed below. Each are
 \item{Discrete Time Hidden Markov Model:}{
 is described under the topic \code{\link{dthmm}}. This model can be simulated or fitted to data by defining the required model structure within an object of class \code{"\link{dthmm}"}.}
 \item{Markov Modulated Generalised Linear Model:}{
-is described under the topic \code{\link{mmglm}}. This model can be simulated or fitted to data by defining the required model structure within an object of class \code{"\link{mmglm}"}.}
+is described under the topic \code{\link{mmglm1}}.}
 \item{Markov Modulated Poisson Process:}{
 is described under the topic \code{\link{mmpp}}. This model can be simulated or fitted to data by defining the required model structure within an object of class \code{"\link{mmpp}"}.}
 }
@@ -47,11 +48,11 @@ Many of the functions contained in the package are based on those of Walter Zucc
 }
 
 \references{
-Baum, L.E.; Petrie, T.; Soules, G. \& Weiss, N. (1970). A maximization technique occurring in the statistical analysis of probabilistic functions of Markov chains. \emph{Annals of Mathematical Statistics} \bold{41(1)}, 164--171. DOI: \url{http://dx.doi.org/10.1214/aoms/1177697196}
+Baum, L.E.; Petrie, T.; Soules, G. & Weiss, N. (1970). A maximization technique occurring in the statistical analysis of probabilistic functions of Markov chains. \emph{Annals of Mathematical Statistics} \bold{41(1)}, 164--171. DOI: \url{http://dx.doi.org/10.1214/aoms/1177697196}
 
 Charnes, A.; Frome, E.L. & Yu, P.L. (1976). The equivalence of generalized least squares and maximum likelihood estimates in the exponential family. \emph{JASA} \bold{71(353)}, 169--171. DOI: \url{http://dx.doi.org/10.2307/2285762}
 
-Dempster, A.P.; Laird, N.M. \& Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38.
+Dempster, A.P.; Laird, N.M. & Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38.
 
 Elliott, R.J.; Aggoun, L. & Moore, J.B. (1994). \emph{Hidden Markov Models: Estimation and Control.} Springer-Verlag, New York.
 
@@ -59,15 +60,15 @@ Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{Hidden
 
 Hartley, H.O. (1958). Maximum likelihood estimation from incomplete data. \emph{Biometrics} \bold{14(2)}, 174--194. DOI: \url{http://dx.doi.org/10.2307/2527783}
 
-Klemm, A.; Lindemann, C. \& Lohmann, M. (2003). Modeling IP traffic using the batch Markovian arrival process. \emph{Performance Evaluation} \bold{54(2)}, 149--173. DOI: \url{http://dx.doi.org/10.1016/S0166-5316(03)00067-1}
+Klemm, A.; Lindemann, C. & Lohmann, M. (2003). Modeling IP traffic using the batch Markovian arrival process. \emph{Performance Evaluation} \bold{54(2)}, 149--173. DOI: \url{http://dx.doi.org/10.1016/S0166-5316(03)00067-1}
 
 MacDonald, I.L. & Zucchini, W. (1997). \emph{Hidden Markov and Other Models for Discrete-valued Time Series.} Chapman and Hall/CRC, Boca Raton.
 
-McCullagh, P. \& Nelder, J.A. (1989). \emph{Generalized Linear Models (2nd Edition).} Chapman and Hall, London.
+McCullagh, P. & Nelder, J.A. (1989). \emph{Generalized Linear Models (2nd Edition).} Chapman and Hall, London.
 
 Rabiner, L.R. (1989). A tutorial on hidden Markov models and selected applications in speech recognition. \emph{Proceedings of the IEEE} \bold{77(2)}, 257--286. DOI: \url{http://dx.doi.org/10.1109/5.18626}.
 
-Roberts, W.J.J.; Ephraim, Y. \& Dieguez, E. (2006). On Ryden's EM algorithm for estimating MMPPs. \emph{IEEE Signal Processing Letters} \bold{13(6)}, 373--376. DOI: \url{http://dx.doi.org/10.1109/LSP.2006.871709}
+Roberts, W.J.J.; Ephraim, Y. & Dieguez, E. (2006). On Ryden's EM algorithm for estimating MMPPs. \emph{IEEE Signal Processing Letters} \bold{13(6)}, 373--376. DOI: \url{http://dx.doi.org/10.1109/LSP.2006.871709}
 
 Ryden, T. (1994). Parameter estimation for Markov modulated Poisson processes. \emph{Stochastic Models} \bold{10(4)}, 795--829. DOI: \url{http://dx.doi.org/10.1080/15326349408807323}
 

@@ -1,7 +1,7 @@
 \name{dthmm}
 \alias{dthmm}
 
-\title{Discrete Time HMM Object}
+\title{Discrete Time HMM Object (DTHMM)}
 
 \description{
 Creates a discrete time hidden Markov model object with class \code{"dthmm"}.
@@ -14,9 +14,9 @@ dthmm(x, Pi, delta, distn, pm, pn = NULL, discrete = NULL,
 
 \arguments{
   \item{x}{is a vector of length \eqn{n} containing the observed process. Alternatively, \code{x} could be specified as \code{NULL}, meaning that the data will be added later (e.g. simulated).}
-  \item{Pi}{is the \eqn{m \times m} transition probability matrix of the homogeneous hidden Markov chain.}
+  \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the homogeneous hidden Markov chain.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states at the first time point.}
-  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a distribution function called \code{"pwxyz"} should be available, in the standard \R\ format (e.g. \code{\link{pnorm}} or \code{\link{ppois}}).}
+  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a distribution function called \code{"pwxyz"} should be available, in the standard \R format (e.g. \code{\link{pnorm}} or \code{\link{ppois}}).}
   \item{pm}{is a list object containing the (Markov dependent) parameter values associated with the distribution of the observed process (see below).}
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see below).}
   \item{discrete}{is logical, and is \code{TRUE} if \code{distn} is a discrete distribution. Set automatically for distributions already contained in the package.}
@@ -29,34 +29,38 @@ A \code{\link[base]{list}} object with class \code{"dthmm"}, containing the abov
 
 \section{Notation}{
 \enumerate{
-\item MacDonald \& Zucchini (1997) use \eqn{t} to denote the \emph{time}, where \eqn{t = 1, \cdots, T}. To avoid confusion with other uses of \code{\link[base]{t}} and \code{\link[base:logical]{T}} in \R\, we use \eqn{i = 1, \cdots, n}.
+\item MacDonald & Zucchini (1997) use \eqn{t} to denote the \emph{time}, where \eqn{t = 1, \cdots, T}{t = 1, ..., T}. To avoid confusion with other uses of \code{\link[base]{t}} and \code{\link[base:logical]{T}} in \R, we use \eqn{i = 1, \cdots, n}{i = 1, ..., n}.
 
-\item We denote the observed sequence as \eqn{\{X_i\},\ i = 1, \cdots, n}; and the hidden Markov chain as \eqn{\{C_i\},\ i = 1, \cdots, n}.
+\item We denote the observed sequence as \eqn{\{X_i\},\ i = 1, \cdots, n}{{X_i}, i = 1, ..., n}; and the hidden Markov chain as \eqn{\{C_i\},\ i = 1, \cdots, n}{{C_i}, i = 1, ..., n}.
 
 \item The history of the observed process up to time \eqn{i} is denoted by \eqn{X^{(i)}}, i.e.
 \deqn{
 X^{(i)} = (X_1, \cdots, X_i)
+}{
+X^{(i)} = (X_1, ..., X_i)
 }
-where \eqn{i = 1, \cdots, n}. Similarly for \eqn{C^{(i)}}.
+where \eqn{i = 1, \cdots, n}{i = 1, ..., n}. Similarly for \eqn{C^{(i)}}.
 
 
-\item The hidden Markov chain has \eqn{m} states denoted by \eqn{1, \cdots, m}.
+\item The hidden Markov chain has \eqn{m} states denoted by \eqn{1, \cdots, m}{1, ..., m}.
 
-\item The Markov chain transition probability matrix is denoted by \eqn{\Pi}, where the \eqn{(j, k)}th element is
+\item The Markov chain transition probability matrix is denoted by \eqn{\Pi}{Pi}, where the \eqn{(j, k)}th element is
 \deqn{
 \pi_{jk} = \Pr\{ C_{i+1}=k \, | \, C_i=j \}
+}{
+pi_{jk} = Pr{ C_{i+1} = k | C_i = j }
 }
-for all \eqn{i} (i.e. all time points), and \eqn{j,k = 1, \cdots, m}.
+for all \eqn{i} (i.e. all time points), and \eqn{j,k = 1, \cdots, m}{j,k = 1, ..., m}.
 
-\item The Markov chain is assumed to be \emph{homogeneous}, i.e. for each \eqn{j} and \eqn{k}, \eqn{\pi_{jk}} is constant over time.
+\item The Markov chain is assumed to be \emph{homogeneous}, i.e. for each \eqn{j} and \eqn{k}, \eqn{\pi_{jk}}{pi_{jk}} is constant over time.
 
-\item The Markov chain is said to be \emph{stationary} if the marginal distribution is the same over time, i.e. for each \eqn{j}, \eqn{\delta_j = \Pr\{ C_i = j \}} is constant for all \eqn{i}. The marginal distribution is denoted by \eqn{\delta = (\delta_1, \cdots, \delta_m)}.
+\item The Markov chain is said to be \emph{stationary} if the marginal distribution is the same over time, i.e. for each \eqn{j}, \eqn{\delta_j = \Pr\{ C_i = j \}}{delta_j = Pr{ C_i = j }} is constant for all \eqn{i}. The marginal distribution is denoted by \eqn{\delta = (\delta_1, \cdots, \delta_m)}{delta = (delta_1, ..., delta_m)}.
 }}
 
 \section{List Object pm}{
 The list object \code{pm} contains parameter values for the probability distribution of the observed process that are dependent on the hidden Markov state. These parameters are generally required to be estimated. See \dQuote{Modifications} in topic \code{\link{Mstep}} when some do not require estimation.
 
-Assume that the hidden Markov chain has \eqn{m} states, and that there are \eqn{\ell} parameters that are dependent on the hidden Markov state. Then the list object \code{pm} should contain \eqn{\ell} \emph{named} vector components each of length \eqn{m}. The names are determined by the required probability distribution.
+Assume that the hidden Markov chain has \eqn{m} states, and that there are \eqn{\ell}{l} parameters that are dependent on the hidden Markov state. Then the list object \code{pm} should contain \eqn{\ell}{l} \emph{named} vector components each of length \eqn{m}. The names are determined by the required probability distribution.
 
 For example, if \code{distn == "norm"}, the arguments names must coincide with those used by the functions \code{\link{dnorm}} or \code{\link{rnorm}}, which are \code{mean} and \code{sd}. Each must be specified in either \code{pm} or \code{pn}. If they both vary according to the hidden Markov state then \code{pm} should have the \emph{named} components \code{mean} and \code{sd}. These are both vectors of length \eqn{m} containing the means and standard deviations of the observed process when the hidden Markov chain is in each of the \eqn{m} states. If, for example, \code{sd} was \dQuote{time} dependent, then \code{sd} would be contained in \code{pn} (see below).
 
@@ -66,7 +70,7 @@ If \code{distn == "pois"}, then \code{pm} should have one component named \code{
 \section{List Object pn}{
 The list object \code{pn} contains parameter values of the probability distribution for the observed process that are dependent on the observation number or \dQuote{time}. These parameters are assumed to be \emph{known}.
 
-Assume that the observed process is of length \eqn{n}, and that there are \eqn{\ell} parameters that are dependent on the observation number or time. Then the list object \code{pn} should contain \eqn{\ell} \emph{named} vector components each of length \eqn{n}. The names, as in \code{pm}, are determined by the required probability distribution.
+Assume that the observed process is of length \eqn{n}, and that there are \eqn{\ell}{l} parameters that are dependent on the observation number or time. Then the list object \code{pn} should contain \eqn{\ell}{l} \emph{named} vector components each of length \eqn{n}. The names, as in \code{pm}, are determined by the required probability distribution.
 
 For example, in the observed process we may count the number of successes in a \emph{known} number of Bernoulli trials, i.e. the number of Bernoulli trials is known at each time point, but the probability of success varies according to a hidden Markov state. The \code{prob} parameter of \code{\link{rbinom}} (or \code{\link{dbinom}}) would be specified in \code{pm} and the \code{size} parameter would specified in \code{pn}.
 
@@ -77,22 +81,30 @@ One could also have a situation where the observed process was Gaussian, with th
 The \dQuote{complete data likelihood}, \eqn{L_c}, is
 \deqn{
 L_c = \Pr\{ X_1=x_1, \cdots, X_n=x_n, C_1=c_1, \cdots, C_n=c_n \}\,.
+}{
+L_c = Pr{ X_1=x_1, ..., X_n=x_n, C_1=c_1, ..., C_n=c_n } .
 }
 This can be shown to be
 \deqn{
 \Pr\{ X_1=x_1 \,|\, C_1=c_1 \} \Pr\{ C_1=c_1 \} \prod_{i=2}^n \Pr\{ X_i=x_i \,|\, C_i=c_i \} \Pr\{ C_i=c_i \,|\, C_{i-1}=c_{i-1} \}\,,
+}{
+Pr{ X_1=x_1 | C_1=c_1 } Pr{ C_1=c_1 } prod_{i=2}^n Pr{ X_i=x_i | C_i=c_i } Pr{ C_i=c_i | C_{i-1}=c_{i-1} } ,
 }
 and hence, substituting model parameters, we get
 \deqn{
 L_c = \delta_{c_1} \pi_{c_1c_2} \pi_{c_2c_3} \cdots \pi_{c_{n-1}c_n} \prod_{i=1}^n \Pr\{ X_i=x_i \,|\, C_i=c_i \}\,,
+}{
+L_c = delta_{c_1} pi_{c_1c_2} pi_{c_2c_3} ... pi_{c_{n-1}c_n} prod_{i=1}^n Pr{ X_i=x_i | C_i=c_i } ,
 }
 and so
 \deqn{
 \log L_c = \log \delta_{c_1} +  \sum_{i=2}^n \log \pi_{c_{i-1}c_i} + \sum_{i=1}^n \log \Pr\{ X_i=x_i \,|\, C_i=c_i \}\,.
+}{
+log L_c = log delta_{c_1} +  sum_{i=2}^n log pi_{c_{i-1}c_i} + sum_{i=1}^n log Pr{ X_i=x_i | C_i=c_i } .
 }
 Hence the \dQuote{complete data likelihood} is split into three terms: the first relates to parameters of the marginal distribution (Markov chain), the second to the transition probabilities, and the third to the distribution parameters of the observed random variable. When the Markov chain is non-stationary, each term can be maximised separately.
 
-When the hidden Markov chain is assumed to be stationary, \eqn{\delta = \Pi^\prime \delta} (see topic \code{\link{compdelta}}), and then the first two terms of \eqn{\log L_c} determine the transition probabilities \eqn{\Pi}. This raises more complicated numerical problems, as the first term is effectively a constraint. We deal with this in a slightly ad-hoc manner by effectively disregarding the first term, which is assumed to be relatively small. In the M-step, the transition matrix is determined by the second term, then \eqn{\delta} is estimated using the relation \eqn{\delta = \delta \Pi}.
+When the hidden Markov chain is assumed to be stationary, \eqn{\delta = \Pi^\prime \delta}{delta = Pi' delta} (see topic \code{\link{compdelta}}), and then the first two terms of \eqn{\log L_c}{log L_c} determine the transition probabilities \eqn{\Pi}{Pi}. This raises more complicated numerical problems, as the first term is effectively a constraint. We deal with this in a slightly ad-hoc manner by effectively disregarding the first term, which is assumed to be relatively small. In the M-step, the transition matrix is determined by the second term, then \eqn{\delta}{delta} is estimated using the relation \eqn{\delta = \delta \Pi}{delta = delta Pi}.
 }
 
 

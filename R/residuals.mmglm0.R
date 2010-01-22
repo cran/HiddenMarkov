@@ -1,4 +1,4 @@
-"residuals.mmglm" <-
+"residuals.mmglm0" <-
 function (object, ...) 
 {
     object <- as.dthmm(object)

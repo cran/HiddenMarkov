@@ -1,7 +1,7 @@
 "as.dthmm" <-
 function (object)
 {
-    #   turns mmglm object into dthmm
+    #   turns mmglm0 object into dthmm
     if (object$family=="binomial" | object$family=="poisson") discrete <- TRUE
     else discrete <- FALSE
     x <- list(x=object$x$y, Pi=object$Pi, delta=object$delta,

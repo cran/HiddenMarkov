@@ -1,10 +1,10 @@
 \name{compdelta}
 \alias{compdelta}
 
-\title{Compute Marginal Distribution of Stationary Markov Chain}
+\title{Marginal Distribution of Stationary Markov Chain}
 
 \description{
-Computes the marginal distribution of a \emph{stationary} Markov chain with transition probability matrix \eqn{\Pi}. The \eqn{m} discrete states of the Markov chain are denoted by \eqn{1, \cdots, m}.
+Computes the marginal distribution of a \emph{stationary} Markov chain with transition probability matrix \eqn{\Pi}{Pi}. The \eqn{m} discrete states of the Markov chain are denoted by \eqn{1, \cdots, m}{1, ..., m}.
 }
 
 \usage{
@@ -12,17 +12,21 @@ compdelta(Pi)
 }
 
 \arguments{
-  \item{Pi}{is the \eqn{m \times m} transition probability matrix of the Markov chain.}
+  \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the Markov chain.}
 }
 
 \details{
-If the Markov chain is stationary, then the marginal distribution \eqn{\delta} satisfies
+If the Markov chain is stationary, then the marginal distribution \eqn{\delta}{delta} satisfies
 \deqn{
 \delta = \delta \Pi \,.
+}{
+delta = delta Pi.
 }
 Obviously,
 \deqn{
 \sum_j^m \delta_j = 1.
+}{
+sum_j^m delta_j = 1.
 }
 }
 

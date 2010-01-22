@@ -1,11 +1,9 @@
-"mmglm" <-
-function (x, Pi, delta, family, link, beta, glmformula=formula(y~x1),
-          sigma=NA, nonstat = TRUE)
+mmglm <-
+function (...)
 {
-    x <- c(list(x=x, Pi=Pi, delta=delta, family=family, link=link,
-                beta=beta, glmformula=glmformula, sigma=sigma,
-                nonstat=nonstat))
-    class(x) <- c("mmglm")
+    warning("Please change your function call 'mmglm' to 'mmglm0'. See the Manual page for further details.")
+    x <- mmglm0(...)
     return(x)
 }
+
 

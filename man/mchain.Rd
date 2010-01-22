@@ -13,7 +13,7 @@ mchain(x, Pi, delta, nonstat = TRUE)
 
 \arguments{
   \item{x}{is a vector of length \eqn{n} containing the observed process, else it is specified as \code{NULL}. This is used when there are no data and a process is to be simulated.}
-  \item{Pi}{is the \eqn{m \times m} transition probability matrix of the Markov chain.}
+  \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the Markov chain.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} state Markov chain at the first time point.}
   \item{nonstat}{is logical, \code{TRUE} if the homogeneous Markov chain is assumed to be non-stationary, default. See \dQuote{Details} below.}
 }

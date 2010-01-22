@@ -28,9 +28,9 @@ Viterbihmm(x, Pi, delta, distn, pm, pn = NULL)
   \item{x}{is a vector of length \eqn{n} containing the observed process.}
   \item{n}{length of process.}
   \item{initial}{integer, being the initial hidden Markov state \eqn{(1, \cdots, m)}.}
-  \item{Pi}{is the \eqn{m \times m} transition probability matrix of the hidden Markov chain.}
+  \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the hidden Markov chain.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states at the first time point.}
-  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a distribution function called \code{"pwxyz"} should be available, in the standard \R\ format (e.g. \code{\link{pnorm}} or \code{\link{ppois}}).}
+  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a distribution function called \code{"pwxyz"} should be available, in the standard \R format (e.g. \code{\link{pnorm}} or \code{\link{ppois}}).}
   \item{pm}{is a list object containing the (Markov dependent) parameter values associated with the distribution of the observed process (see \code{\link{dthmm}}).}
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see \code{\link{dthmm}}).}
   \item{discrete}{is logical, and is \code{TRUE} if \code{distn} is a discrete distribution.}

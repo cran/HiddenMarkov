@@ -2,9 +2,11 @@
 \alias{summary}
 \alias{summary.dthmm}
 \alias{summary.mmpp}
-\alias{summary.mmglm}
+\alias{summary.mmglm0}
+\alias{summary.mmglm1}
+\alias{summary.mmglmlong1}
 
-\title{Summary Methods for Hidden Markov Model Objects}
+\title{Summary of Hidden Markov Model}
 
 \description{
 Provides methods for the generic function \code{\link[base]{summary}}.
@@ -12,18 +14,20 @@ Provides methods for the generic function \code{\link[base]{summary}}.
 
 \usage{
 \method{summary}{dthmm}(object, ...)
-\method{summary}{mmglm}(object, ...)
+\method{summary}{mmglm0}(object, ...)
+\method{summary}{mmglm1}(object, ...)
+\method{summary}{mmglmlong1}(object, ...)
 \method{summary}{mmpp}(object, ...)
 }
 
 \arguments{
-  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mmglm}"} or \code{"\link{mmpp}"}.}
+  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} or \code{"\link{mmpp}"}.}
   \item{...}{other arguments.}
 }
 
 
 \details{
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm}"} and \code{"\link{mmpp}"} can be viewed by typing \code{summary.dthmm}, \code{summary.mmglm} or \code{summary.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by typing \code{summary.dthmm}, \code{summary.mmglm0}, \code{summary.mmglm1}, \code{summary.mmglmlong1} or \code{summary.mmpp}, respectively, on the \R command line.
 }
 
 \value{

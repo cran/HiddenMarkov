@@ -1,4 +1,4 @@
-simulate.mmglm <- function (object, nsim=1, seed=NULL, ...){
+simulate.mmglm0 <- function (object, nsim=1, seed=NULL, ...){
     if (!is.null(seed)) set.seed(seed)
     obj1 <- simulate.mchain(object, nsim=nsim, seed=seed)
     #   simulate covariate as uniform (0,1) if NULL

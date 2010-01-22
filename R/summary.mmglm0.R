@@ -1,4 +1,4 @@
-"summary.mmglm" <-
+"summary.mmglm0" <-
 function (object, ...) 
 {
     list(variable.names=names(object$x),

@@ -1,5 +1,5 @@
-\name{Transform.Parameters}
-\alias{Transform.Parameters}
+\name{Transform-Parameters}
+\alias{Transform-Parameters}
 \alias{Pi2vector}
 \alias{vector2Pi}
 \alias{Q2vector}
@@ -8,7 +8,7 @@
 \title{Transform Transition or Rate Matrices to Vector}
 
 \description{
-These functions transform \eqn{m} by \eqn{m} transition probability matrices or \eqn{Q} matrices to a vector of length \eqn{m(m-1)}, and back. See Details.
+These functions transform \eqn{m \times m}{m*m} transition probability matrices or \eqn{Q} matrices to a vector of length \eqn{m(m-1)}, and back. See Details.
 }
 
 \usage{
@@ -32,7 +32,7 @@ Similarly, the function \code{Q2vector} maps the \eqn{m} by \eqn{m} rate matrix 
 }
 
 \value{
-The functions \code{Pi2vector} and \code{Q2vector} return a vector of length \eqn{m(m-1)}, the function \code{vector2Pi} returns an \eqn{m} by \eqn{m} transition probability matrix, and \code{vector2Q} returns an \eqn{m} by \eqn{m} rate matrix \eqn{Q}.
+The functions \code{Pi2vector} and \code{Q2vector} return a vector of length \eqn{m(m-1)}, the function \code{vector2Pi} returns an \eqn{m} by \eqn{m} transition probability matrix, and \code{vector2Q} returns an \eqn{m \times m}{m*m} rate matrix \eqn{Q}.
 }
 
 \seealso{\code{\link{neglogLik}}}

@@ -19,7 +19,7 @@ Estep.mmpp(tau, Q, delta, lambda, fortran = TRUE)
   \item{Q}{the infinitesimal generator matrix of the Markov process.}
   \item{lambda}{a vector containing the Poisson rates.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states at time zero.}
-  \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R\ code.}
+  \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R code.}
 }
 
 \details{

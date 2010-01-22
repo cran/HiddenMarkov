@@ -10,7 +10,7 @@
 \alias{Mstep.norm}
 \alias{Mstep.pois}
 
-\title{M Step of EM Algorithm}
+\title{M-Step of EM Algorithm for DTHMM}
 
 \description{
 Performs the \emph{maximisation} step of the EM algorithm for a \code{\link{dthmm}} process. This function is called by the \code{\link{BaumWelch}} function. The Baum-Welch algorithm used in the HMM literature is a version of the EM algorithm.
@@ -41,13 +41,13 @@ Mstep.pois(x, cond, pm, pn)
 The functions \code{Mstep.beta}, \code{Mstep.binom}, \code{Mstep.exp}, \code{Mstep.gamma}, \code{Mstep.lnorm}, \code{Mstep.logis}, \code{Mstep.norm} and \code{Mstep.pois} perform the maximisation step for the Beta, Binomial, Exponential, Gamma, Log Normal, Logistic, Normal and Poisson distributions, respectively. Each function has the same argument list, even if specific arguments are redundant, because the functions are called from within other functions in a generic like manner. Specific notes for some follow.
 
 \describe{
-\item{\code{Mstep.beta}}{The \R\ functions for the Beta distribution have arguments \code{shape1} and \code{shape2}; and the density also has \code{ncp}. We only use \code{shape1} and \code{shape2}, i.e. \code{ncp} is assumed to be zero. Different combinations of \code{"shape1"} and \code{"shape2"} can be \dQuote{time} dependent (specified in \code{pn}) and Markov dependent (specified in \code{pm}). However, each should only be specified in one (see topic \code{\link{dthmm}}).
+\item{\code{Mstep.beta}}{The \R functions for the Beta distribution have arguments \code{shape1} and \code{shape2}; and the density also has \code{ncp}. We only use \code{shape1} and \code{shape2}, i.e. \code{ncp} is assumed to be zero. Different combinations of \code{"shape1"} and \code{"shape2"} can be \dQuote{time} dependent (specified in \code{pn}) and Markov dependent (specified in \code{pm}). However, each should only be specified in one (see topic \code{\link{dthmm}}).
 }
 
 \item{\code{Mstep.binom}}{The \code{size} argument of the binomial distribution should always be specified in the \code{pn} argument (see topic \code{\link{dthmm}}).
 }
 
-\item{\code{Mstep.gamma}}{The \R\ functions for the Gamma distribution have arguments \code{shape}, \code{rate} and \code{scale}. Since \code{scale} is redundant, we only use \code{shape} and \code{rate}. Different combinations of \code{"shape"} and \code{"rate"} can be \dQuote{time} dependent (specified in \code{pn}) and Markov dependent (specified in \code{pm}). However, each should only be specified in one (see topic \code{\link{dthmm}}).
+\item{\code{Mstep.gamma}}{The \R functions for the Gamma distribution have arguments \code{shape}, \code{rate} and \code{scale}. Since \code{scale} is redundant, we only use \code{shape} and \code{rate}. Different combinations of \code{"shape"} and \code{"rate"} can be \dQuote{time} dependent (specified in \code{pn}) and Markov dependent (specified in \code{pm}). However, each should only be specified in one (see topic \code{\link{dthmm}}).
 }
 
 \item{\code{Mstep.lnorm}}{Different combinations of \code{"meanlog"} and \code{"sdlog"} can be \dQuote{time} dependent (specified in \code{pn}) and Markov dependent (specified in \code{pm}). However, each should only be specified in one (see topic \code{\link{dthmm}}).
@@ -63,9 +63,9 @@ The functions \code{Mstep.beta}, \code{Mstep.binom}, \code{Mstep.exp}, \code{Mst
 }
 
 \section{Modifications}{
-Consider a distribution with two parameters where both parameters are Markov dependent, but one is known and the other requires estimation. For example, consider the Gaussian distribution. Say we know the Markov dependent means, but we need to estimate the standard deviations. Since both parameters are Markov dependent, they both need to be specified in the \code{pm} argument. The estimation of the distribution specific parameters takes place in the Mstep, in this case \code{\link{Mstep.norm}}. To achieve what we want, we need to modify this function. In this case it is relatively easy (see code in \dQuote{Examples} below. From the function \code{\link{Mstep.norm}}, take the code under the section \code{if (all(nms==c("mean", "sd")))}, i.e. both of the parameters are Markov dependent. However, replace the line where the mean is estimated to \code{mean <- pm$mean}, i.e. leave it as was initially specified. Then \code{\link{source}} this revised function so that is found by \R\ in preference to the standard version in the package.
+Consider a distribution with two parameters where both parameters are Markov dependent, but one is known and the other requires estimation. For example, consider the Gaussian distribution. Say we know the Markov dependent means, but we need to estimate the standard deviations. Since both parameters are Markov dependent, they both need to be specified in the \code{pm} argument. The estimation of the distribution specific parameters takes place in the Mstep, in this case \code{\link{Mstep.norm}}. To achieve what we want, we need to modify this function. In this case it is relatively easy (see code in \dQuote{Examples} below. From the function \code{\link{Mstep.norm}}, take the code under the section \code{if (all(nms==c("mean", "sd")))}, i.e. both of the parameters are Markov dependent. However, replace the line where the mean is estimated to \code{mean <- pm$mean}, i.e. leave it as was initially specified. Then \code{\link{source}} this revised function so that is found by \R in preference to the standard version in the package.
 
-One needs to take a little more care when dealing with a distributions like the beta, where the cross derivatives of the log likelihood between the parameters, i.e. \eqn{\partial^2 \log L /(\partial \alpha_1 \partial \alpha_2)} are non-zero.
+One needs to take a little more care when dealing with a distributions like the beta, where the cross derivatives of the log likelihood between the parameters, i.e. \eqn{\partial^2 \log L /(\partial \alpha_1 \partial \alpha_2)}{partial^2 log L /(partial alpha_1 partial alpha_2)} are non-zero.
 }
 
 

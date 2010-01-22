@@ -1,4 +1,4 @@
-"as.mmglm" <-
+"as.mmglm0" <-
 function (object)
 {
     #   turns dthmm object into mmpp
@@ -15,7 +15,7 @@ function (object)
     #   x$x <- as.data.frame(x$x)
     x$x <- object$glmdata
     x$glmformula <- object$glmformula
-    class(x) <- c("mmglm")
+    class(x) <- c("mmglm0")
     return(x)
 }
 

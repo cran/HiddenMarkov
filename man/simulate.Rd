@@ -2,22 +2,26 @@
 \alias{simulate}
 \alias{simulate.dthmm}
 \alias{simulate.mchain}
-\alias{simulate.mmglm}
+\alias{simulate.mmglm0}
+\alias{simulate.mmglm1}
+\alias{simulate.mmglmlong1}
 \alias{simulate.mmpp}
 
-\title{Simulate Various HMM Processes}
+\title{Simulate Hidden Markov Process}
 \description{
 These functions provide methods for the generic function \code{\link[stats]{simulate}}.
 }
 \usage{
 \method{simulate}{dthmm}(object, nsim = 1, seed = NULL, ...)
 \method{simulate}{mchain}(object, nsim = 1, seed = NULL, ...)
-\method{simulate}{mmglm}(object, nsim = 1, seed = NULL, ...)
+\method{simulate}{mmglm0}(object, nsim = 1, seed = NULL, ...)
+\method{simulate}{mmglm1}(object, nsim = 1, seed = NULL, ...)
+\method{simulate}{mmglmlong1}(object, nsim = 1, seed = NULL, ...)
 \method{simulate}{mmpp}(object, nsim = 1, seed = NULL, ...)
 }
 
 \arguments{
-  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mchain}"}, \code{"\link{mmglm}"} or \code{"\link{mmpp}"}.}
+  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mchain}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} or \code{"\link{mmpp}"}.}
   \item{nsim}{number of points to simulate.}
   \item{seed}{seed for the random number generator.}
   \item{\dots}{other arguments.}
@@ -26,15 +30,15 @@ These functions provide methods for the generic function \code{\link[stats]{simu
 \details{
 Below details about particular methods are given where necessary.
 \describe{
-\item{\code{simulate.mmglm}}{If the covariate \code{x1} is \code{NULL}, then uniform (0,1) variables are generated as the values for \code{x1}. When the \code{family} is \code{"binomial"} and \code{size} is \code{NULL} (i.e. the number of Bernoulli trials are not specified), then they are simulated as \code{100+\link{rpois}(nsim, lambda=5)}.}
+\item{\code{simulate.mmglm0}}{If the covariate \code{x1} is \code{NULL}, then uniform (0,1) variables are generated as the values for \code{x1}. When the \code{family} is \code{"binomial"} and \code{size} is \code{NULL} (i.e. the number of Bernoulli trials are not specified), then they are simulated as \code{100+\link{rpois}(nsim, lambda=5)}.}
 }
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm}"} and \code{"\link{mmpp}"} can be viewed by typing \code{simulate.dthmm}, \code{simulate.mmglm} or \code{simulate.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"},  and \code{"\link{mmpp}"} can be viewed by typing \code{simulate.dthmm}, \code{simulate.mmglm0}, \code{simulate.mmglm1}, \code{simulate.mmglmlong1}  or \code{simulate.mmpp}, respectively, on the \R command line.
 }
 
 
 \value{
-The returned object has the same class as the input object and contains the components that were in the input object. Where \code{object} is of class \code{"\link{dthmm}"} it will also have a vector \code{x} containing the simulated values; and when the class is \code{"\link{mmglm}"} \code{x} will be a dataframe. When the class is \code{"\link{mmpp}"} the times of the simulated Poisson events are contained in \code{tau}. Other variables are also added like the sequence of Markov states, and the time spent in each state (\code{"\link{mmpp}"}).
+The returned object has the same class as the input object and contains the components that were in the input object. Where \code{object} is of class \code{"\link{dthmm}"} it will also have a vector \code{x} containing the simulated values; and when the class is \code{"\link{mmglm0}"} \code{x} will be a dataframe. When the class is \code{"\link{mmpp}"} the times of the simulated Poisson events are contained in \code{tau}. Other variables are also added like the sequence of Markov states, and the time spent in each state (\code{"\link{mmpp}"}).
 }
 
 \examples{

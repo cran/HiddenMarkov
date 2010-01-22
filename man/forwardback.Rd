@@ -2,27 +2,30 @@
 \alias{forwardback}
 \alias{forward}
 \alias{backward}
+\alias{forwardback.dthmm}
 
-\title{Forward and Backward Probabilities}
+\title{Forward and Backward Probabilities of DTHMM}
 
 \description{
-These functions calculate the forward and backward probabilities for a \code{\link{dthmm}} process, as defined in MacDonald \& Zucchini (1997, Page 60).
+These functions calculate the forward and backward probabilities for a \code{\link{dthmm}} process, as defined in MacDonald & Zucchini (1997, Page 60).
 }
 
 \usage{
 backward(x, Pi, distn, pm, pn = NULL)
 forward(x, Pi, delta, distn, pm, pn = NULL)
 forwardback(x, Pi, delta, distn, pm, pn = NULL, fortran = TRUE)
+forwardback.dthmm(Pi, delta, prob, fortran = TRUE)
 }
 
 \arguments{
   \item{x}{is a vector of length \eqn{n} containing the observed process.}
-  \item{Pi}{is the \eqn{m \times m} transition probability matrix of the hidden Markov chain.}
+  \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the hidden Markov chain.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states.}
-  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a probability (or density) function called \code{"dwxyz"} should be available, in the standard \R\ format (e.g. \code{\link{dnorm}} or \code{\link{dpois}}).}
+  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a probability (or density) function called \code{"dwxyz"} should be available, in the standard \R format (e.g. \code{\link{dnorm}} or \code{\link{dpois}}).}
   \item{pm}{is a list object containing the current (Markov dependent) parameter estimates associated with the distribution of the observed process (see \code{\link{dthmm}}).}
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see \code{\link{dthmm}}).}
-  \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R\ code.}
+  \item{prob}{an \eqn{n \times m}{n*m} matrix containing the observation probabilities or densities (rows) by Markov state (columns).}
+  \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R code.}
 }
 
 \value{
@@ -32,15 +35,19 @@ The functions \code{backward} and \code{forward} return a matrix containing the 
 }
 
 \details{
-Denote the \eqn{n \times m} matrices containing the forward and backward probabilities as \eqn{A} and \eqn{B}, respectively. Then the \eqn{(i,j)}th elements are
+Denote the \eqn{n \times m}{n*m} matrices containing the forward and backward probabilities as \eqn{A} and \eqn{B}, respectively. Then the \eqn{(i,j)}th elements are
 \deqn{
 \alpha_{ij} = \Pr\{ X_1 = x_1, \cdots, X_i = x_i, C_i = j \}
+}{
+alpha_{ij} = Pr{ X_1 = x_1, ..., X_i = x_i, C_i = j }
 }
 and
 \deqn{
 \beta_{ij} = \Pr\{ X_{i+1} = x_{i+1}, \cdots, X_n = x_n \,|\, C_i = j \} \,.
+}{
+beta_{ij} = Pr{ X_{i+1} = x_{i+1}, ..., X_n = x_n | C_i = j } .
 }
-Further, the diagonal elements of the product matrix \eqn{A B^\prime} are all the same, taking the value of the log-likelihood.
+Further, the diagonal elements of the product matrix \eqn{A B^\prime}{AB'} are all the same, taking the value of the log-likelihood.
 }
 
 \author{The algorithm has been taken from Zucchini (2005).}
