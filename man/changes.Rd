@@ -62,6 +62,10 @@ This page contains a listing of recent changes made to the package.
 \item \code{mmglm}: Renamed to \code{\link{mmglm0}}, new version \code{\link{mmglm1}}. See manual page for more details. (5 Jan 2010)
 
 \item \code{\link{mmglmlong1}}: new function for longitudinal data. (18 Jan 2010)
+
+\item \code{\link{dthmm}}: clarify argument \code{distn} on manual page, and nature of parameter estimates when the Markov chain is stationary. (04 Feb 2010)
+
+\item \code{\link{BaumWelch.mmglmlong1}}: new argument \code{tmpfile} added. (13 Feb 2010)
 }}
 
 

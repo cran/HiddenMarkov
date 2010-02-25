@@ -1,4 +1,5 @@
-BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), SNOWcluster=NULL, ...){
+BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), SNOWcluster=NULL,
+                                  tmpfile=NULL, ...){
     #   using snow cluster
     tol <- control$tol
     oldLL <- -Inf
@@ -29,7 +30,7 @@ BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), SNOWcluster=NULL,
             if (object$glmfamily$family=="binomial")
                 subobject$size <- object$size[tmp]
             subobject$Xdesign <- object$Xdesign[tmp,]
-            cond <- Estep.mmglm1(subobject)
+            cond <- Estep.mmglm1(subobject, fortran=FALSE)
             LL <- LL + cond$LL
             sumcondu <- sumcondu + cond$u
             sumcondv <- sumcondv + apply(cond$v, MARGIN=c(2,3), FUN=sum)
@@ -92,7 +93,13 @@ BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), SNOWcluster=NULL,
         object$Pi <- Pi
         object$beta <- tmp$beta
         object$sigma <- tmp$sigma
+        if (iter %% 10){
+            #   save estimates every 10th iteration
+            if (!is.null(tmpfile)) save(object, file=tmpfile)
+        }
     }
+    rownames(object$beta) <- colnames(object$Xdesign)
+    colnames(object$beta) <- paste("State", 1:length(object$delta))
     object$LL <- LL
     object$iter <- iter
     object$diff <- diff

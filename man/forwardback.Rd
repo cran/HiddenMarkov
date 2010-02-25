@@ -29,9 +29,9 @@ forwardback.dthmm(Pi, delta, prob, fortran = TRUE)
 }
 
 \value{
-The function \code{forwardback} returns a list with two matrices containing the forward and backward probabilities, \code{logalpha} and \code{logbeta}, respectively, and the log-likelihood (\code{LL}).
+The function \code{forwardback} returns a list with two matrices containing the forward and backward (log) probabilities, \code{logalpha} and \code{logbeta}, respectively, and the log-likelihood (\code{LL}).
 
-The functions \code{backward} and \code{forward} return a matrix containing the forward and backward probabilities, \code{logalpha} and \code{logbeta}, respectively.
+The functions \code{backward} and \code{forward} return a matrix containing the forward and backward (log) probabilities, \code{logalpha} and \code{logbeta}, respectively.
 }
 
 \details{

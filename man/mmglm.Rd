@@ -134,7 +134,7 @@ print(summary(tmp))
 #    Binomial with logit link function
 #         using mmglm1
 
-#   n = series length for each subject
+#   n = series length
 n <- 5000
 
 #   the range of x need changing according to the glmfamily
@@ -167,7 +167,9 @@ beta <- matrix(c(-1, -1.2,
 y <- mmglm1(NULL, Pi, delta, glmfamily, beta, Xdesign, sigma=sd,
             size=rep(100, n))
 
+#   each element of y$y is the number of successes in 100 Bernoulli trials
 y <- simulate(y, seed=5)
+
 
 # --- Estimation ---
 
@@ -226,14 +228,25 @@ y <- simulate(y, seed=5)
 
 # --- Estimation ---
 
-# library(snow)
-# cl <- makeSOCKcluster(c("localhost", "localhost",
-#                         "horoeka.localdomain", "horoeka.localdomain"))
+#    Note: the "Not run" blocks below are not run during package checks
+#    as the makeSOCKcluster definition is specific to my network,
+#    modify accordingly if you want parallel processing.
 
 cl <- NULL
-tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, tol=1e-03),
+\dontrun{
+if (require(snow)){
+    cl <- makeSOCKcluster(c("localhost", "horoeka.localdomain", 
+                            "horoeka.localdomain", "localhost"))
+}}
+
+tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, tol=1e-02),
                  SNOWcluster=cl)
-# stopCluster(cl)
+
+\dontrun{
+if (!is.null(cl)){
+    stopCluster(cl)
+    rm(cl)
+}}
 
 print(summary(tmp))
 

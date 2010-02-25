@@ -16,7 +16,8 @@ BaumWelch(object, control, ...)
 \method{BaumWelch}{dthmm}(object, control = bwcontrol(), ...)
 \method{BaumWelch}{mmglm0}(object, control = bwcontrol(), ...)
 \method{BaumWelch}{mmglm1}(object, control = bwcontrol(), ...)
-\method{BaumWelch}{mmglmlong1}(object, control = bwcontrol(), SNOWcluster=NULL, ...)
+\method{BaumWelch}{mmglmlong1}(object, control = bwcontrol(), SNOWcluster=NULL,
+          tmpfile=NULL, ...)
 \method{BaumWelch}{mmpp}(object, control = bwcontrol(), ...)
 }
 
@@ -24,6 +25,7 @@ BaumWelch(object, control, ...)
   \item{object}{an object of class \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"}, or \code{"\link{mmpp}"}.}
   \item{control}{a list of control settings for the iterative process. These can be changed by using the function \code{\link{bwcontrol}}.}
   \item{SNOWcluster}{see section below called \dQuote{Parallel Processing}.}
+  \item{tmpfile}{name of a file (.Rda) into which estimates are written at each 10th iteration. The model object is called \code{object}. If \code{NULL} (default), no file is created.}
   \item{\dots}{other arguments.}
 }
 

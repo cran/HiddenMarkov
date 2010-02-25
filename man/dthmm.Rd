@@ -4,7 +4,7 @@
 \title{Discrete Time HMM Object (DTHMM)}
 
 \description{
-Creates a discrete time hidden Markov model object with class \code{"dthmm"}.
+Creates a discrete time hidden Markov model object with class \code{"dthmm"}. The observed process is univariate.
 }
 
 \usage{
@@ -13,19 +13,20 @@ dthmm(x, Pi, delta, distn, pm, pn = NULL, discrete = NULL,
 }
 
 \arguments{
-  \item{x}{is a vector of length \eqn{n} containing the observed process. Alternatively, \code{x} could be specified as \code{NULL}, meaning that the data will be added later (e.g. simulated).}
+  \item{x}{is a vector of length \eqn{n} containing the univariate observed process. Alternatively, \code{x} could be specified as \code{NULL}, meaning that the data will be added later (e.g. simulated).}
   \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the homogeneous hidden Markov chain.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states at the first time point.}
-  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a distribution function called \code{"pwxyz"} should be available, in the standard \R format (e.g. \code{\link{pnorm}} or \code{\link{ppois}}).}
+  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If \code{distn="wxyz"}, then functions \code{dwxyz} (density), \code{pwxyz} (distribution function) and \code{rwxyz} (random number generator) should exist (see below for more details).}
   \item{pm}{is a list object containing the (Markov dependent) parameter values associated with the distribution of the observed process (see below).}
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see below).}
   \item{discrete}{is logical, and is \code{TRUE} if \code{distn} is a discrete distribution. Set automatically for distributions already contained in the package.}
-  \item{nonstat}{is logical, \code{TRUE} if the homogeneous Markov chain is assumed to be non-stationary, default. See \dQuote{Details} below.}
+  \item{nonstat}{is logical, \code{TRUE} if the homogeneous Markov chain is assumed to be non-stationary, default. See section \dQuote{Stationarity} below.}
 }
 
 \value{
 A \code{\link[base]{list}} object with class \code{"dthmm"}, containing the above arguments as named components.
 }
+
 
 \section{Notation}{
 \enumerate{
@@ -56,6 +57,14 @@ for all \eqn{i} (i.e. all time points), and \eqn{j,k = 1, \cdots, m}{j,k = 1, ..
 
 \item The Markov chain is said to be \emph{stationary} if the marginal distribution is the same over time, i.e. for each \eqn{j}, \eqn{\delta_j = \Pr\{ C_i = j \}}{delta_j = Pr{ C_i = j }} is constant for all \eqn{i}. The marginal distribution is denoted by \eqn{\delta = (\delta_1, \cdots, \delta_m)}{delta = (delta_1, ..., delta_m)}.
 }}
+
+\section{Argument distn}{
+Note that the observed process \code{x} is univariate, i.e. \code{x} is a vector.
+
+If \code{distn="wxyz"}, then functions \code{dwxyz} (density), \code{pwxyz} (distribution function) and \code{rwxyz} (random number generator) should exist. These functions \emph{must} behave in the same vectorised way as \code{\link{dnorm}} and \code{\link{dpois}}. For example, if \code{x} is a vector, and \code{mean} and \code{sd} are scalars, then \code{\link{dnorm}(x, mean, sd)} calculates the density for each element in \code{x} using the scalar values of \code{mean} and \code{sd}; thus the returned value is the same length as \code{x}. Alternatively, if \code{x} is a scalar and \code{mean} and \code{sd} are vectors, both of the same length, then the returned value is the same length as \code{mean} and is the density of \code{x} evaluated at the corresponding pairs of values of \code{mean} and \code{sd}. The third possibility is that \code{x} and one of the distribution parameters, say \code{sd}, are vectors of the same length, and \code{mu} is a scalar. Then the returned vector will be of the same length as \code{x}, where the \eqn{i}th value is the density of \code{x[i]} with mean \code{mean} and standard deviation \code{sd[i]}.
+
+Note that the functions for the \code{\link{Multinomial}} distribution do not have this behaviour. Here the vector \code{x} contains the counts for \emph{one} multinomial experiment, so the vector is used to characterise the multivariate character of the random variable rather than multiple univariate realisations. Further, the distribution parameters (i.e. category probabilities) are characterised as one vector rather than a separate sequence of parameters.
+}
 
 \section{List Object pm}{
 The list object \code{pm} contains parameter values for the probability distribution of the observed process that are dependent on the hidden Markov state. These parameters are generally required to be estimated. See \dQuote{Modifications} in topic \code{\link{Mstep}} when some do not require estimation.
@@ -103,8 +112,12 @@ and so
 log L_c = log delta_{c_1} +  sum_{i=2}^n log pi_{c_{i-1}c_i} + sum_{i=1}^n log Pr{ X_i=x_i | C_i=c_i } .
 }
 Hence the \dQuote{complete data likelihood} is split into three terms: the first relates to parameters of the marginal distribution (Markov chain), the second to the transition probabilities, and the third to the distribution parameters of the observed random variable. When the Markov chain is non-stationary, each term can be maximised separately.
+}
 
-When the hidden Markov chain is assumed to be stationary, \eqn{\delta = \Pi^\prime \delta}{delta = Pi' delta} (see topic \code{\link{compdelta}}), and then the first two terms of \eqn{\log L_c}{log L_c} determine the transition probabilities \eqn{\Pi}{Pi}. This raises more complicated numerical problems, as the first term is effectively a constraint. We deal with this in a slightly ad-hoc manner by effectively disregarding the first term, which is assumed to be relatively small. In the M-step, the transition matrix is determined by the second term, then \eqn{\delta}{delta} is estimated using the relation \eqn{\delta = \delta \Pi}{delta = delta Pi}.
+\section{Stationarity}{
+When the hidden Markov chain is assumed to be non-stationary, the complete data likelihood has a neat structure, in that \eqn{\delta}{delta} only occurs in the first term, \eqn{\Pi}{Pi} only occurs in the second term, and the parameters associated with the observed probabilities only occur in the third term. Hence, the likelihood can easily be maximised by maximising each term individually. In this situation, the estimated parameters using \code{\link{BaumWelch}} will be the \dQuote{exact} maximum likelihood estimates.
+
+When the hidden Markov chain is assumed to be stationary, \eqn{\delta = \Pi^\prime \delta}{delta = Pi' delta} (see topic \code{\link{compdelta}}), and then the first two terms of the complete data likelihood determine the transition probabilities \eqn{\Pi}{Pi}. This raises more complicated numerical problems, as the first term is effectively a constraint. In our implementation of the EM algorithm, we deal with this in a slightly ad-hoc manner by effectively disregarding the first term, which is assumed to be relatively small. In the M-step, the transition matrix is determined by the second term, then \eqn{\delta}{delta} is estimated using the relation \eqn{\delta = \delta \Pi}{delta = delta Pi}. Hence, using the \code{\link{BaumWelch}} function will only provide approximate maximum likelihood estimates. Exact solutions can be calculated by directly maximising the likelihood function, see first example in \code{\link{neglogLik}}.
 }
 
 

@@ -1,25 +1,15 @@
 forwardback.dthmm <- function(Pi, delta, prob, fortran=TRUE){
     m <- nrow(Pi)
     n <- nrow(prob)
-#----------------------------------
-#   DO EXTERNAL, prob enters as function argument
-#   dfunc <- makedensity(distn)
-#   prob <- matrix(as.double(0), nrow=n, ncol=m)
-#   for (k in 1:m)
-#       prob[,k] <- dfunc(x=x, getj(pm, k), pn, log=FALSE)
-#----------------------------------
     #   forward probabilities alpha_ij
     phi <- as.double(delta)
-#print(phi)
     logalpha <- matrix(as.double(rep(0, m*n)), nrow=n)
     lscale <- as.double(0)
     if (fortran!=TRUE){
         #  loop1 using R code
        for (i in 1:n){
-#for (i in 1:3){
             if (i > 1) phi <- phi %*% Pi
             phi <- phi*prob[i,]
-#print(prob[i,])
             sumphi <- sum(phi)
             phi <- phi/sumphi
             lscale <- lscale + log(sumphi)

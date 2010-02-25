@@ -1,7 +1,5 @@
 dmmglm <- function(x, beta, sigma, glmfamily, Xdesign, size=NA, log=FALSE){
     mu <- glmfamily$linkinv(Xdesign %*% beta)
-# print(mu)
-# print(glmfamily$family)
     if (glmfamily$family=="gaussian")
         return(dnorm(x, mean=mu, sd=sigma, log=log))
     else if (glmfamily$family=="poisson")

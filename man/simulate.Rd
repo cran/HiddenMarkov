@@ -33,7 +33,7 @@ Below details about particular methods are given where necessary.
 \item{\code{simulate.mmglm0}}{If the covariate \code{x1} is \code{NULL}, then uniform (0,1) variables are generated as the values for \code{x1}. When the \code{family} is \code{"binomial"} and \code{size} is \code{NULL} (i.e. the number of Bernoulli trials are not specified), then they are simulated as \code{100+\link{rpois}(nsim, lambda=5)}.}
 }
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"},  and \code{"\link{mmpp}"} can be viewed by typing \code{simulate.dthmm}, \code{simulate.mmglm0}, \code{simulate.mmglm1}, \code{simulate.mmglmlong1}  or \code{simulate.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"},  and \code{"\link{mmpp}"} can be viewed by typing \code{simulate.dthmm}, \code{simulate.mmglm0}, \code{simulate.mmglm1},\cr \code{simulate.mmglmlong1}  or \code{simulate.mmpp}, respectively, on the \R command line.
 }
 
 

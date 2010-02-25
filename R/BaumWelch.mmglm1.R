@@ -27,6 +27,8 @@ BaumWelch.mmglm1 <- function (object, control=bwcontrol(), ...){
         object$beta <- tmp$beta
         object$sigma <- tmp$sigma
     }
+    rownames(object$beta) <- colnames(object$Xdesign)
+    colnames(object$beta) <- paste("State", 1:length(object$delta))
     object$u <- cond$u    
     object$v <- cond$v
     object$LL <- cond$LL

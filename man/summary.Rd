@@ -27,7 +27,7 @@ Provides methods for the generic function \code{\link[base]{summary}}.
 
 
 \details{
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by typing \code{summary.dthmm}, \code{summary.mmglm0}, \code{summary.mmglm1}, \code{summary.mmglmlong1} or \code{summary.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by typing \code{summary.dthmm}, \code{summary.mmglm0}, \code{summary.mmglm1},\cr \code{summary.mmglmlong1} or \code{summary.mmpp}, respectively, on the \R command line.
 }
 
 \value{
