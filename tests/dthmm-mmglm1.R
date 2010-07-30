@@ -48,4 +48,16 @@ print(summary(tmp2))
 print(logLik(tmp2, fortran=TRUE))
 print(logLik(tmp2, fortran=FALSE))
 
+#------------------------------------------------------------------
+#   Compare: both models are the same
+
+if (abs(logLik(tmp2)-logLik(tmp)) > 1e-06) stop("ERROR: See tests/dthmm-mmglm1.R")
+
+print(tmp$pm)
+print(tmp2$beta)
+print(tmp2$sigma)
+
+print(tmp$Pi)
+print(tmp2$Pi)
+
 

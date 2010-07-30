@@ -120,6 +120,9 @@ When the hidden Markov chain is assumed to be non-stationary, the complete data 
 When the hidden Markov chain is assumed to be stationary, \eqn{\delta = \Pi^\prime \delta}{delta = Pi' delta} (see topic \code{\link{compdelta}}), and then the first two terms of the complete data likelihood determine the transition probabilities \eqn{\Pi}{Pi}. This raises more complicated numerical problems, as the first term is effectively a constraint. In our implementation of the EM algorithm, we deal with this in a slightly ad-hoc manner by effectively disregarding the first term, which is assumed to be relatively small. In the M-step, the transition matrix is determined by the second term, then \eqn{\delta}{delta} is estimated using the relation \eqn{\delta = \delta \Pi}{delta = delta Pi}. Hence, using the \code{\link{BaumWelch}} function will only provide approximate maximum likelihood estimates. Exact solutions can be calculated by directly maximising the likelihood function, see first example in \code{\link{neglogLik}}.
 }
 
+\references{
+Cited references are listed on the \link{HiddenMarkov} manual page.
+}
 
 \examples{
 #-----  Test Gaussian Distribution -----

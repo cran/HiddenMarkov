@@ -52,8 +52,10 @@ When the density function of the response variable is from the exponential famil
 
 \section{Under Development}{
 These functions are still being developed. In previous releases of the package (\eqn{< 1.3}), there was only one function called \code{mmglm}. This has been renamed to \code{mmglm0}. The most recent version is \code{mmglm1} along with \code{mmglmlong1} which has flexibility to include longitudinal data. Further development versions will be numbered sequentially. The name \code{mmglm} has been reserved for the final stable version, at which point the numbered versions will become deprecated.
+}
 
-The functions \code{mmglm} and \code{mmglmlong1} currently have no methods for the generic functions \code{\link{residuals}} and \code{\link{logLik}}.
+\references{
+Cited references are listed on the \link{HiddenMarkov} manual page.
 }
 
 \examples{
@@ -74,11 +76,16 @@ beta <- matrix(c(0.1, -0.1,
 x <- mmglm0(NULL, Pi, delta, family="gaussian", link="identity",
             beta=beta, sigma=c(1, 2))
 
-x <- simulate(x, nsim=5000, seed=10)
+n <- 5000
+x <- simulate(x, nsim=n, seed=10)
 
 y <- BaumWelch(x)
 
-hist(residuals(y))
+w <- hist(residuals(y))
+z <- seq(-3, 3, 0.01)
+points(z, dnorm(z)*n*(w$breaks[2]-w$breaks[1]), col="red", type="l")
+box()
+
 print(summary(y))
 print(logLik(y))
 

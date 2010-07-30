@@ -50,5 +50,9 @@ where \eqn{j,k = 1, \cdots, m}{j,k = 1, ..., m} and \eqn{i = 1, \cdots, n}{i = 1
 \code{\link{BaumWelch}}, \code{\link{Mstep}}
 }
 
+\references{
+Cited references are listed on the \link{HiddenMarkov} manual page.
+}
+
 \keyword{optimize}
 

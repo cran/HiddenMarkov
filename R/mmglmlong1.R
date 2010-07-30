@@ -12,4 +12,3 @@ function (y, Pi, delta, glmfamily, beta, Xdesign, longitude,
     return(x)
 }
 
-

@@ -3,6 +3,7 @@
 \alias{logLik.dthmm}
 \alias{logLik.mmglm0}
 \alias{logLik.mmglm1}
+\alias{logLik.mmglmlong1}
 \alias{logLik.mmpp}
 
 \title{Log Likelihood of Hidden Markov Model}
@@ -14,11 +15,12 @@ Provides methods for the generic function \code{\link[stats]{logLik}}.
 \method{logLik}{dthmm}(object, fortran=TRUE, ...)
 \method{logLik}{mmglm0}(object, fortran=TRUE, ...)
 \method{logLik}{mmglm1}(object, fortran=TRUE, ...)
+\method{logLik}{mmglmlong1}(object, fortran=TRUE, ...)
 \method{logLik}{mmpp}(object, fortran=TRUE, ...)
 }
 
 \arguments{
-  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} or \code{"\link{mmpp}"}.}
+  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} or \code{"\link{mmpp}"}.}
   \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R code.}
   \item{...}{other arguments.}
 }
@@ -26,7 +28,7 @@ Provides methods for the generic function \code{\link[stats]{logLik}}.
 \details{
 The methods provided here will always recalculate the log-likelihood even if it is already contained within the \code{object}. This enables the user to change parameter or data values within the \code{object} and recalculate the log-likelihood for the revised configuration.
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} and \code{"\link{mmpp}"} can be viewed by typing \code{logLik.dthmm}, \code{logLik.mmglm0}, \code{logLik.mmglm1} or \code{logLik.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by typing \code{logLik.dthmm}, \code{logLik.mmglm0}, \code{logLik.mmglm1}, \code{logLik.mmglmlong1} or \code{logLik.mmpp}, respectively, on the \R command line.
 }
 
 \value{

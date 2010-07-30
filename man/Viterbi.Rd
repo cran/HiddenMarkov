@@ -2,6 +2,8 @@
 \alias{Viterbi}
 \alias{Viterbi.dthmm}
 \alias{Viterbi.mmglm0}
+\alias{Viterbi.mmglm1}
+\alias{Viterbi.mmglmlong1}
 
 \title{Viterbi Algorithm for Hidden Markov Model}
 
@@ -12,10 +14,12 @@ Provides methods for the generic function \code{\link{Viterbi}}. This predicts t
 \usage{
 \method{Viterbi}{dthmm}(object, ...)
 \method{Viterbi}{mmglm0}(object, ...)
+\method{Viterbi}{mmglm1}(object, ...)
+\method{Viterbi}{mmglmlong1}(object, ...)
 }
 
 \arguments{
-  \item{object}{an object with class \code{"\link{dthmm}"} or \code{"\link{mmglm0}"}.}
+  \item{object}{an object with class \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} or \code{"\link{mmglmlong1}"}.}
   \item{...}{other arguments.}
 }
 
@@ -37,11 +41,15 @@ k_i^* = argmax Pr{ C_i=k | X^{(n)}=x^{(n)} } .
 }
 Note that the above probabilities are calculated by the function \code{\link{Estep}}, and are contained in \code{u[i,j]} (output from \code{Estep}), i.e. \eqn{k_i^*} is simply \code{which.max(u[i,])}.
 
-The code for the methods \code{"\link{dthmm}"} and \code{"\link{mmglm0}"} can be viewed by typing \code{Viterbi.dthmm} or \code{Viterbi.mmglm0}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} or \code{"\link{mmglmlong1}"} can be viewed by typing \code{Viterbi.dthmm}, \code{Viterbi.mmglm0}, \code{Viterbi.mmglm1} or \code{Viterbi.mmglmlong1}, respectively, on the \R command line.
 }
 
 \value{
 A vector of length \eqn{n} containing integers (\eqn{1, \cdots, m}{1, ..., m}) representing the hidden Markov states for each node of the chain.
+}
+
+\references{
+Cited references are listed on the \link{HiddenMarkov} manual page.
 }
 
 \examples{

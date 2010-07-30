@@ -7,7 +7,8 @@ logLik.mmglm1 <- function(object, fortran=TRUE, ...){
         prob[,k] <- dmmglm(object$y, object$beta[,k], object$sigma[k],
                            object$glmfamily, object$Xdesign, log=FALSE,
                            size=object$size)
-    y <- forwardback.dthmm(object$Pi, object$delta, prob, fortran)$LL
+    y <- forwardback.dthmm(object$Pi, object$delta, prob, fortran,
+                           fwd.only=TRUE)$LL
     return(y)
 }
 

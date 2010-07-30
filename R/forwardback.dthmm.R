@@ -1,4 +1,4 @@
-forwardback.dthmm <- function(Pi, delta, prob, fortran=TRUE){
+forwardback.dthmm <- function(Pi, delta, prob, fortran=TRUE, fwd.only=FALSE){
     m <- nrow(Pi)
     n <- nrow(prob)
     #   forward probabilities alpha_ij
@@ -25,6 +25,7 @@ forwardback.dthmm <- function(Pi, delta, prob, fortran=TRUE){
         logalpha <- loop1[[6]]
         LL <- loop1[[7]]
     }
+    if (fwd.only) return(list(logalpha=logalpha, LL=LL))
     #   backward probabilities beta_ij
     logbeta <- matrix(as.double(rep(0, m*n)), nrow=n)
     phi <- as.double(rep(1/m, m))

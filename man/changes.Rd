@@ -66,16 +66,28 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{dthmm}}: clarify argument \code{distn} on manual page, and nature of parameter estimates when the Markov chain is stationary. (04 Feb 2010)
 
 \item \code{\link{BaumWelch.mmglmlong1}}: new argument \code{tmpfile} added. (13 Feb 2010)
+
+\item \code{\link{Viterbi}}: Methods added for objects of class \code{"\link{mmglm1}"} and \code{"\link{mmglmlong1}"}. (29 Jul 2010)
+
+\item \code{\link{logLik}}: Method added for object of class \code{"\link{mmglmlong1}"}. (30 Jul 2010)
+
+\item \code{\link{forwardback.dthmm}}, \code{\link{forwardback.mmpp}}: New argument \code{"fwd.only"}. (30 Jul 2010)
+
+\item \code{\link{logLik.dthmm}}: Calls \code{\link{forwardback.dthmm}} to perform calculations. (30 Jul 2010)
+
+\item \code{\link{logLik.mmpp}}: Calls \code{\link{forwardback.mmpp}} to perform calculations. (30 Jul 2010)
 }}
 
 
 \section{Future Development}{
 \enumerate{
-\item The functions \code{\link{residuals}} and \code{\link{Viterbi}} need methods for objects with class \code{\link{mmpp}}.
+\item The function \code{\link{residuals}} needs methods for objects of class \code{\link{mmpp}}, \code{\link{mmglm1}} and \code{\link{mmglmlong1}}.
+
+\item The function \code{\link{Viterbi}} needs a method for objects of class \code{\link{mmpp}}.
 
 \item A number of the original functions have names that are too general. For example \code{\link{forwardback}} calculates the forward-backward probabilities, but only for the model \code{\link{dthmm}}. The corresponding function for the \code{\link{mmpp}} model is \code{\link{forwardback.mmpp}}. It would be more consistent to attach to these original functions a \code{dthmm} suffix.
 
-\item The demonstration examples are all for \code{\link{dthmm}}. Also need some for \code{\link{mmglm0}} and \code{\link{mmpp}}.
+\item The demonstration examples are all for \code{\link{dthmm}}. Also need some for \code{\link{mmglm1}}, \code{\link{mmglmlong1}} and \code{\link{mmpp}}.
 }}
 
 \keyword{documentation}

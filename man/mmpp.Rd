@@ -27,6 +27,9 @@ A \code{\link[base]{list}} object with class \code{"mmpp"}, containing the above
 The Markov modulated Poisson process is based on a hidden Markov process in continuous time. The initial state probabilities (at time zero) are specified by \code{delta} and the transition rates by the \code{Q} matrix. The rate parameter of the Poisson process (\code{lambda}) is determined by the current state of the hidden Markov process. Within each state, the Poisson process is homogeneous (constant rate parameter). A Poisson event is assumed to occur at time zero and at the end of the observation period, however, state transitions of the Markov process do not necessarily coincide with Poisson events. For more details, see Ryden (1996).
 }
 
+\references{
+Cited references are listed on the \link{HiddenMarkov} manual page.
+}
 
 \examples{
 Q <- matrix(c(-2,  2,

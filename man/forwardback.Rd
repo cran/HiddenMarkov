@@ -14,7 +14,7 @@ These functions calculate the forward and backward probabilities for a \code{\li
 backward(x, Pi, distn, pm, pn = NULL)
 forward(x, Pi, delta, distn, pm, pn = NULL)
 forwardback(x, Pi, delta, distn, pm, pn = NULL, fortran = TRUE)
-forwardback.dthmm(Pi, delta, prob, fortran = TRUE)
+forwardback.dthmm(Pi, delta, prob, fortran = TRUE, fwd.only = FALSE)
 }
 
 \arguments{
@@ -26,6 +26,7 @@ forwardback.dthmm(Pi, delta, prob, fortran = TRUE)
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see \code{\link{dthmm}}).}
   \item{prob}{an \eqn{n \times m}{n*m} matrix containing the observation probabilities or densities (rows) by Markov state (columns).}
   \item{fortran}{logical, if \code{TRUE} (default) use the Fortran code, else use the \R code.}
+  \item{fwd.only}{logical, if \code{FALSE} (default) calculate both forward and backward probabilities; else calculate and return only forward probabilities and log-likelihood.}
 }
 
 \value{
@@ -54,6 +55,10 @@ Further, the diagonal elements of the product matrix \eqn{A B^\prime}{AB'} are a
 
 \seealso{
 \code{\link{logLik}}
+}
+
+\references{
+Cited references are listed on the \link{HiddenMarkov} manual page.
 }
 
 \examples{

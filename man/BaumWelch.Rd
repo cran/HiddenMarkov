@@ -82,9 +82,11 @@ Note that the communication method does not need to be \code{SOCKS}; see the \pk
 }
 
 \seealso{
-\code{\link{logLik}}, \code{\link{residuals}}, \code{\link{simulate}}, \code{\link{summary}}
-, \code{\link{neglogLik}}}
+\code{\link{logLik}}, \code{\link{residuals}}, \code{\link{simulate}}, \code{\link{summary}}, \code{\link{neglogLik}}}
 
+\references{
+Cited references are listed on the \link{HiddenMarkov} manual page.
+}
 
 \keyword{methods}
 \keyword{optimize}

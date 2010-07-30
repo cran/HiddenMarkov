@@ -1,5 +1,5 @@
 "forwardback.mmpp" <-
-function(tau, Q, delta, lambda, fortran=TRUE){
+function(tau, Q, delta, lambda, fortran=TRUE, fwd.only=FALSE){
     #   note that tau has already been differenced in BaumWelch.mmpp
     #   IT SHOULD BE CALLED SOMETHING DIFFERENT, SAY dtau
     m <- nrow(Q)
@@ -41,6 +41,9 @@ function(tau, Q, delta, lambda, fortran=TRUE){
         psi <- loop3[[10]]
         scalefac <- loop3[[7]]
     }
+    if (fwd.only)
+        return(list(logalpha=logalpha, eigenval=eigenval, S=S, 
+                    Sinv=Sinv, scalefac=scalefac, LL=sum(scalefac)))
     ##  scaled backward probabilities
     logbeta <- matrix(rep(as.double(0), m*(n+1)), nrow=(n+1))
     phi <- rep(as.double(1/m), m)
