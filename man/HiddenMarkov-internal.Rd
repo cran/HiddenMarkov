@@ -1,5 +1,6 @@
 \name{HiddenMarkov-internal}
 \alias{residuals.mmpp}
+\alias{Viterbi.mmpp}
 \alias{as.dthmm}
 \alias{as.mmglm0}
 \alias{makedensity}
@@ -9,6 +10,7 @@
 \alias{dglm}
 \alias{pglm}
 \alias{dmmglm}
+\alias{pmmglm}
 \alias{mmglm}
 
 \title{Internally Used Functions}
@@ -18,8 +20,6 @@ This page lists internally used functions. They should not be required by most u
 }
 
 \usage{
-\method{residuals}{mmpp}(object, ...)
-
 as.dthmm(object)
 as.mmglm0(object)
 
@@ -34,6 +34,7 @@ dglm(x, x1, beta0, beta1, sigma, family, link, size = NA,
 pglm(q, x1, beta0, beta1, sigma, family, link, size = NA,
      log = FALSE)
 dmmglm(x, beta, sigma, glmfamily, Xdesign, size=NA, log=FALSE)
+pmmglm(x, beta, sigma, glmfamily, Xdesign, size=NA, log=FALSE)
 
 mmglm(...)
 }
@@ -46,6 +47,8 @@ The function \code{getj} is used to extract the \eqn{j}th element from each vect
 The function \code{as.dthmm} coerces an object with class \code{"\link{mmglm0}"} to an object with class \code{"\link{dthmm}"}. Similarly, the function \code{as.mmglm0} coerces an object with class \code{"\link{dthmm}"} to an object with class \code{"\link{mmglm0}"} (if possible).
 
 The functions \code{dglm} and \code{pglm} calculate the density and probability, respectively, for an observation given a generalised linear model.
+
+The functions \code{dmmglm} and \code{pmmglm} calculate the density and probability, respectively, for an observation given a generalised linear model.
 }
 
 \keyword{internal}

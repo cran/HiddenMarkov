@@ -76,14 +76,22 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{logLik.dthmm}}: Calls \code{\link{forwardback.dthmm}} to perform calculations. (30 Jul 2010)
 
 \item \code{\link{logLik.mmpp}}: Calls \code{\link{forwardback.mmpp}} to perform calculations. (30 Jul 2010)
+
+\item \code{\link{Viterbi}}: Now generates an error message when applied to objects of class \code{"\link{mmpp}"}. Method not currently available. (03 Aug 2010)
+
+\item \code{"\link{Viterbi.mmglm1}"}: Fixed bug with number of Bernoulli trials specification when using a binomial family. (05 Aug 2010)
+
+\item \code{\link{residuals.dthmm}}, \code{\link{probhmm}}: Modify for greater efficiency and generality to accommodate more general models. Arguments of \code{\link{probhmm}} have also been changed. (05 Aug 2010)
+
+\item \code{residualshmm}: Made defunct, incompatible with revised \code{\link{probhmm}}. (05 Aug 2010)
+
+\item \code{\link{residuals}}: Methods added for objects of class \code{"\link{mmglm1}"} and \code{"\link{mmglmlong1}"}. Generates an error message when applied to objects of class \code{"\link{mmpp}"}, currently no method available. (05 Aug 2010)
 }}
 
 
 \section{Future Development}{
 \enumerate{
-\item The function \code{\link{residuals}} needs methods for objects of class \code{\link{mmpp}}, \code{\link{mmglm1}} and \code{\link{mmglmlong1}}.
-
-\item The function \code{\link{Viterbi}} needs a method for objects of class \code{\link{mmpp}}.
+\item The functions \code{\link{Viterbi}} and \code{\link{residuals}} need methods for objects of class \code{\link{mmpp}}.
 
 \item A number of the original functions have names that are too general. For example \code{\link{forwardback}} calculates the forward-backward probabilities, but only for the model \code{\link{dthmm}}. The corresponding function for the \code{\link{mmpp}} model is \code{\link{forwardback.mmpp}}. It would be more consistent to attach to these original functions a \code{dthmm} suffix.
 

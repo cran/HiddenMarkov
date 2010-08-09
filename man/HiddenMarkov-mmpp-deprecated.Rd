@@ -8,7 +8,7 @@
 \alias{Baum.Welch0.mmpp}
 \alias{sim.mmpp}
 
-\title{Markov Modulated Poisson Process - deprecated Functions}
+\title{Markov Modulated Poisson Process - Deprecated Functions}
 
 \description{
 These functions are deprecated and will ultimately be removed from the package. Please change to the revised versions: \code{\link{BaumWelch}}, \code{\link{Estep.mmpp}}, \code{\link{forwardback.mmpp}}, \code{\link[HiddenMarkov]{simulate}} or \code{\link{logLik}}.

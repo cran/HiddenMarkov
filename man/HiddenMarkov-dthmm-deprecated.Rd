@@ -1,7 +1,6 @@
 \name{HiddenMarkov-dthmm-deprecated}
 \alias{HiddenMarkov-dthmm-deprecated}
 \alias{Baum.Welch}
-\alias{residualshmm}
 \alias{sim.hmm}
 \alias{sim.hmm1}
 \alias{sim.markov}

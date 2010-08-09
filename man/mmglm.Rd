@@ -11,7 +11,7 @@ These functions create Markov modulated generalised linear model objects. \emph{
 
 \usage{
 mmglm0(x, Pi, delta, family, link, beta, glmformula = formula(y~x1),
-       sigma = NA, nonstat = TRUE)
+       sigma = NA, nonstat = TRUE, msg = TRUE)
 mmglm1(y, Pi, delta, glmfamily, beta, Xdesign,
        sigma = NA, nonstat = TRUE, size = NA, msg = TRUE)
 mmglmlong1(y, Pi, delta, glmfamily, beta, Xdesign, longitude, 

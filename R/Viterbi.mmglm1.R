@@ -4,16 +4,16 @@ Viterbi.mmglm1 <- function (object, ...){
     m <- nrow(object$Pi)
     nu <- matrix(NA, nrow=n, ncol=m)
     y <- rep(NA, n)
-    if (object$glmfamily$family=="binomial") size <- object$size[1]
-    else size <- NA
+    if (object$glmfamily$family=="binomial") size <- object$size
+    else size <- rep(NA, length(x))
     nu[1,] <- log(object$delta) + dmmglm(x[1], object$beta, object$sigma,
-               object$glmfamily, object$Xdesign[1,], size=size, log=TRUE)
+               object$glmfamily, object$Xdesign[1,], size=size[1], log=TRUE)
     logPi <- log(object$Pi)
     for (i in 2:n) {
         matrixnu <- matrix(nu[i-1,], nrow=m, ncol=m)
         nu[i,] <- apply(matrixnu + logPi, 2, max) +
                    dmmglm(x[i], object$beta, object$sigma, object$glmfamily,
-                          object$Xdesign[i,], size=size, log=TRUE)
+                          object$Xdesign[i,], size=size[i], log=TRUE)
     }
     if (any(nu[n,] == -Inf)) 
         stop("Problems With Underflow")

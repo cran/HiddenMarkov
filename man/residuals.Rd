@@ -2,6 +2,8 @@
 \alias{residuals}
 \alias{residuals.dthmm}
 \alias{residuals.mmglm0}
+\alias{residuals.mmglm1}
+\alias{residuals.mmglmlong1}
 
 \title{Residuals of Hidden Markov Model}
 
@@ -12,21 +14,21 @@ Provides methods for the generic function \code{\link[stats]{residuals}}. There 
 \usage{
 \method{residuals}{dthmm}(object, ...)
 \method{residuals}{mmglm0}(object, ...)
+\method{residuals}{mmglm1}(object, ...)
+\method{residuals}{mmglmlong1}(object, ...)
 }
 
 \arguments{
-  \item{object}{an object with class \code{\link{dthmm}} or \code{\link{mmglm0}}. There is not yet a method for \code{\link{mmpp}}.}
+  \item{object}{an object with class \code{\link{dthmm}}, \code{\link{mmglm0}}, \code{\link{mmglm1}} or \code{\link{mmglmlong1}}.}
   \item{...}{other arguments.}
 }
 
 \details{
-For objects of class \code{"\link{dthmm}"} or \code{"\link{mmglm0}"} the calculated residuals are pseudo residuals. Under satisfactory conditions they have an approximate standard normal distribution.
+The calculated residuals are \emph{pseudo residuals}. Under satisfactory conditions they have an approximate standard normal distribution. Initially the function \code{\link{probhmm}} is called. If the model fits satisfactorily, the returned values should be approximately uniformly distributed. Hence by applying the function \code{\link[stats:Normal]{qnorm}}, the resultant \dQuote{residuals} should have an approximate standard normal distribution.
 
-Initially the function \code{\link{probhmm}} is called. If the model fits satisfactorily, the returned values should be approximately uniformly distributed. Hence by applying the function \code{\link[stats:Normal]{qnorm}}, the resultant \dQuote{residuals} should have an approximate standard normal distribution.
+A continuity adjustment is made when the observed distribution is discrete. In the case of count distributions (e.g. binomial and Poisson) where the observed count is close to or on the boundary of the domain (e.g. binomial or Poisson count is zero, or binomial count is \dQuote{n}), the pseudo residuals will give a very poor indication of the models goodness of fit; see the Poisson example below.
 
-When the distribution (observed) is discrete an adjustment is made. However, if relatively few of the possible outcomes are observed, the pseudo residuals will be rather poorly described by the standard normal distribution; see the Poisson example below.
-
-The code for the methods \code{"\link{dthmm}"} and \code{"\link{mmglm0}"} can be viewed by typing \code{residuals.dthmm} or \code{residuals.mmglm0}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} or \code{"\link{mmglmlong1}"} can be viewed by typing \code{residuals.dthmm}, \code{residuals.mmglm0}, \code{residuals.mmglm1} or \code{residuals.mmglmlong1}, respectively, on the \R command line.
 }
 
 \value{

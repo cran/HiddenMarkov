@@ -8,28 +8,25 @@ Calculates the distribution function at each point for a \code{\link{dthmm}} pro
 }
 
 \usage{
-probhmm(x, Pi, delta, distn, pm, pn = NULL, adj = 0, ...)
+probhmm(logalpha, logbeta, Pi, delta, cumprob)
 }
 
 \arguments{
-  \item{x}{is a vector of length \eqn{n} containing the observed process.}
+  \item{logalpha}{an \eqn{n \times m}{n*m} matrix containing the logarithm of the forward probabilities.}
+  \item{logbeta}{an \eqn{n \times m}{n*m} matrix containing the logarithm of the backward probabilities.}
   \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the hidden Markov chain.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states at the first time point.}
-  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If the distribution is specified as \code{"wxyz"} then a distribution function called \code{"pwxyz"} should be available, in the standard \R format (e.g. \code{\link{pnorm}} or \code{\link{ppois}}).}
-  \item{pm}{is a list object containing the (Markov dependent) parameter values associated with the distribution of the observed process (see \code{\link{dthmm}}).}
-  \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see \code{\link{dthmm}}).}
-  \item{adj}{zero or one, being an adjustment for discrete distributions.}
-  \item{...}{other arguments. This allows more complicated objects with the required arguments, but with redundant components also, to be passed to this function.}
+  \item{cumprob}{an \eqn{n \times m}{n*m} matrix where the \eqn{(i,k)}th element is \eqn{\Pr\{ X_i \le x_i \,|\, C_k = c_k\}}{Pr{Xi <= xi | Ck = ck}}.}
 }
 
 \details{
-Let \eqn{X^{(-i)}} denote the entire process, except with the point \eqn{X_i} removed. The distribution function at the point \eqn{X_i} is
+Let \eqn{X^{(-i)}} denote the entire process, except with the point \eqn{X_i}{Xi} removed. The distribution function at the point \eqn{X_i}{Xi} is
 \deqn{
 \Pr\{ X_i \le x_i \,|\, X^{(-i)} = x^{(-i)} \}\,.
 }{
-Pr{ X_i <= x_i | X^{(-i)} = x^{(-i)} } .
+Pr{ Xi <= xi | X^{(-i)} = x^{(-i)} } .
 }
-This \R function calculates the distribution function for each point \eqn{X_i} for \eqn{i=1, \cdots, n}{i=1, ..., n}. This is done by using the forward and backward probabilities before and after the \eqn{i}th point, respectively.
+This \R function calculates the distribution function for each point \eqn{X_i}{Xi} for \eqn{i=1, \cdots, n}{i=1, ..., n}. This is done by using the forward and backward probabilities before and after the \eqn{i}th point, respectively.
 
 In the programming code, note the subtraction of the mean. This is to stop underflow when the exponential is taken. Removal of the mean is automatically compensated for by the fact that the same factor is removed in both the numerator and denominator.
 }

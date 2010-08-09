@@ -20,7 +20,7 @@ delta <- c(1, 0)
 
 y <- dthmm(NULL, Pi=Pi, distn="norm", delta=delta, pm=list(mean=c(5, 2), sd=c(1, 1)))
 
-y <- simulate(y, nsim=N*n)
+y <- simulate(y, nsim=N*n, seed=10)
 print(logLik(y))
 
 tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, tol=1e-05))
@@ -30,7 +30,7 @@ print(logLik(tmp))
 
 
 #------------------------------------------------------------------
-#   Using mmglm
+#   Using mmglm1
 
 glmformula <- formula(y$x ~ 1)
 glmfamily <- gaussian(link="identity")
@@ -39,25 +39,33 @@ Xdesign <- model.matrix(glmformula)
 beta <- matrix(c(5, 2), 
                ncol=ncol(Pi), nrow=ncol(Xdesign), byrow=TRUE)
 
-y2 <- mmglm1(y$x, Pi, delta, glmfamily, beta, Xdesign, sigma=c(1, 1))
-print(logLik(y2))
+y1 <- mmglm1(y$x, Pi, delta, glmfamily, beta, Xdesign, sigma=c(1, 1), msg=FALSE)
+print(logLik(y1))
 
-tmp2 <- BaumWelch(y2, bwcontrol(posdiff=FALSE, tol=1e-05))
+tmp1 <- BaumWelch(y1, bwcontrol(posdiff=FALSE, tol=1e-05))
 
-print(summary(tmp2))
-print(logLik(tmp2, fortran=TRUE))
-print(logLik(tmp2, fortran=FALSE))
+print(summary(tmp1))
+print(logLik(tmp1, fortran=TRUE))
+print(logLik(tmp1, fortran=FALSE))
 
 #------------------------------------------------------------------
-#   Compare: both models are the same
+#   Compare Models
 
-if (abs(logLik(tmp2)-logLik(tmp)) > 1e-06) stop("ERROR: See tests/dthmm-mmglm1.R")
+if (abs(logLik(tmp)-logLik(tmp1)) > 1e-06)
+    warning("WARNING: See tests/dthmm-mmglm1-gaussian.R, log-likelihoods are different")
+
+if (any(Viterbi(tmp)!=Viterbi(tmp1)))
+    warning("WARNING: See tests/dthmm-mmglm1-gaussian.R, Viterbi paths are different")
+
+if (any(abs(residuals(tmp)-residuals(tmp1)) > 1e-06))
+    warning("WARNING: See tests/dthmm-mmglm1-gaussian.R, residuals are different")
+
 
 print(tmp$pm)
-print(tmp2$beta)
-print(tmp2$sigma)
+print(tmp1$beta)
+print(tmp1$sigma)
 
 print(tmp$Pi)
-print(tmp2$Pi)
+print(tmp1$Pi)
 
 

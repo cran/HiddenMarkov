@@ -1,10 +1,7 @@
 "probhmm" <-
-function (x, Pi, delta, distn, pm, pn = NULL, adj = 0, ...) 
+function (logalpha, logbeta, Pi, delta, cumprob) 
 {
-    pfunc <- makedistn(distn)
-    n <- length(x)
-    logbeta <- backward(x, Pi, distn, pm, pn)
-    logalpha <- forward(x, Pi, delta, distn, pm, pn)
+    n <- nrow(logalpha)
     prob <- rep(NA, n)
     for (i in 1:n) {
         if (i==1){
@@ -16,8 +13,7 @@ function (x, Pi, delta, distn, pm, pn = NULL, adj = 0, ...)
         }
         lb <- logbeta[i,]
         post <- exp(lb - mean(lb[lb != -Inf]))
-        prob[i] <- (pre %*% diag(pfunc(x[i]-adj, pm,
-                     getj(pn, i))) %*% post)/(pre %*% post)
+        prob[i] <- (pre %*% diag(cumprob[i,]) %*% post)/(pre %*% post)
     }
     return(prob)
 }
