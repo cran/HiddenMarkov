@@ -86,6 +86,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{residualshmm}: Made defunct, incompatible with revised \code{\link{probhmm}}. (05 Aug 2010)
 
 \item \code{\link{residuals}}: Methods added for objects of class \code{"\link{mmglm1}"} and \code{"\link{mmglmlong1}"}. Generates an error message when applied to objects of class \code{"\link{mmpp}"}, currently no method available. (05 Aug 2010)
+
+\item \dQuote{Mathematical Background Notes for Package HiddenMarkov} included in package (\code{/doc}). (17 Sep 2010)
 }}
 
 
