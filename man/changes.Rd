@@ -88,6 +88,10 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{residuals}}: Methods added for objects of class \code{"\link{mmglm1}"} and \code{"\link{mmglmlong1}"}. Generates an error message when applied to objects of class \code{"\link{mmpp}"}, currently no method available. (05 Aug 2010)
 
 \item Add CITATION file. (24 Sep 2010)
+
+\item \code{\link{makedistn}}: Change \code{eval(parse(text=paste(x, " list(log=log)))", sep="")))} to \code{eval(parse(text=paste(x, " list(log.p=log)))", sep="")))}. (19 Dec 2010)
+
+\item \code{\link{pglm}}, \code{\link{pmmglm}}: Change all \code{log} arguments to \code{log.p}. (19 Dec 2010)
 }}
 
 

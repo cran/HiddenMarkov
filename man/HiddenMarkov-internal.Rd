@@ -32,9 +32,9 @@ getj(x, j)
 dglm(x, x1, beta0, beta1, sigma, family, link, size = NA,
      log = FALSE)
 pglm(q, x1, beta0, beta1, sigma, family, link, size = NA,
-     log = FALSE)
+     log.p = FALSE)
 dmmglm(x, beta, sigma, glmfamily, Xdesign, size=NA, log=FALSE)
-pmmglm(x, beta, sigma, glmfamily, Xdesign, size=NA, log=FALSE)
+pmmglm(x, beta, sigma, glmfamily, Xdesign, size=NA, log.p=FALSE)
 
 mmglm(...)
 }

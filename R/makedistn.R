@@ -4,5 +4,5 @@ makedistn <- function(distn){
          do.call(\"", pname, "\", c(list(q=x), pm, pn,", sep="")
     if (distn[1]=="glm") x <- paste(x, " list(family=\"", distn[2],
          "\", link=\"", distn[3], "\"),", sep="")
-    eval(parse(text=paste(x, " list(log=log)))", sep="")))
+    eval(parse(text=paste(x, " list(log.p=log)))", sep="")))
 }
