@@ -92,6 +92,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{makedistn}}: Change \code{eval(parse(text=paste(x, " list(log=log)))", sep="")))} to \code{eval(parse(text=paste(x, " list(log.p=log)))", sep="")))}. (19 Dec 2010)
 
 \item \code{\link{pglm}}, \code{\link{pmmglm}}: Change all \code{log} arguments to \code{log.p}. (19 Dec 2010)
+
+\item Revise examples in \code{/tests} directory. (02 May 2011)
 }}
 
 

@@ -1,5 +1,6 @@
 #    Compare mmglm0 and mmglm1
 #    Gaussian with identity link function
+#    R CMD BATCH --no-save mmglm0-mmglm1-binomial.R mmglm0-mmglm1-binomial.Rout.save
 
 library(HiddenMarkov)
 
@@ -31,7 +32,7 @@ x0 <- mmglm0(x, Pi, delta, family="binomial", link="logit",
 
 x0 <- simulate(x0, nsim=n, seed=10)
 
-x0 <- BaumWelch(x0)
+x0 <- BaumWelch(x0, bwcontrol(prt=FALSE))
 
 print(summary(x0))
 
@@ -45,7 +46,7 @@ Xdesign <- model.matrix(glmformula, data=x0$x)
 x1 <- mmglm1(x0$x$y, Pi, delta, glmfamily, beta, Xdesign, sigma=sd,
              size=x$size, msg=FALSE)
 
-x1 <- BaumWelch(x1)
+x1 <- BaumWelch(x1, bwcontrol(prt=FALSE))
 
 print(summary(x1))
 

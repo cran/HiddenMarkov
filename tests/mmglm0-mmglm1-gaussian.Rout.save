@@ -1,11 +1,14 @@
 
-R version 2.11.1 (2010-05-31)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.13.0 (2011-04-13)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i486-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
 Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
 
 R is a collaborative project with many contributors.
 Type 'contributors()' for more information and
@@ -17,6 +20,7 @@ Type 'q()' to quit R.
 
 > #    Compare mmglm0 and mmglm1
 > #    Gaussian with identity link function
+> #    R CMD BATCH --no-save mmglm0-mmglm1-gaussian.R mmglm0-mmglm1-gaussian.Rout.save
 > 
 > library(HiddenMarkov)
 > 
@@ -42,119 +46,7 @@ Type 'q()' to quit R.
 > 
 > x0 <- simulate(x0, nsim=5000, seed=10)
 > 
-> x0 <- BaumWelch(x0)
-iter = 1 
-LL = -9496.9179656 
-diff = Inf 
-
-iter = 2 
-LL = -9495.6762543 
-diff = 1.241711 
-
-iter = 3 
-LL = -9495.3115076 
-diff = 0.3647467 
-
-iter = 4 
-LL = -9495.1363015 
-diff = 0.1752061 
-
-iter = 5 
-LL = -9495.0385495 
-diff = 0.097752 
-
-iter = 6 
-LL = -9494.9793484 
-diff = 0.05920107 
-
-iter = 7 
-LL = -9494.9418118 
-diff = 0.03753661 
-
-iter = 8 
-LL = -9494.9174189 
-diff = 0.02439295 
-
-iter = 9 
-LL = -9494.9013590 
-diff = 0.01605981 
-
-iter = 10 
-LL = -9494.8907103 
-diff = 0.01064872 
-
-iter = 11 
-LL = -9494.8836205 
-diff = 0.007089785 
-
-iter = 12 
-LL = -9494.8788880 
-diff = 0.004732544 
-
-iter = 13 
-LL = -9494.8757231 
-diff = 0.003164847 
-
-iter = 14 
-LL = -9494.8736036 
-diff = 0.002119523 
-
-iter = 15 
-LL = -9494.8721824 
-diff = 0.001421223 
-
-iter = 16 
-LL = -9494.8712283 
-diff = 0.0009540634 
-
-iter = 17 
-LL = -9494.8705872 
-diff = 0.0006411465 
-
-iter = 18 
-LL = -9494.8701559 
-diff = 0.0004313092 
-
-iter = 19 
-LL = -9494.8698654 
-diff = 0.0002904449 
-
-iter = 20 
-LL = -9494.8696696 
-diff = 0.0001957854 
-
-iter = 21 
-LL = -9494.8695375 
-diff = 0.0001321106 
-
-iter = 22 
-LL = -9494.8694483 
-diff = 8.923532e-05 
-
-iter = 23 
-LL = -9494.8693880 
-diff = 6.03365e-05 
-
-iter = 24 
-LL = -9494.8693471 
-diff = 4.083869e-05 
-
-iter = 25 
-LL = -9494.8693195 
-diff = 2.767027e-05 
-
-iter = 26 
-LL = -9494.8693007 
-diff = 1.876763e-05 
-
-iter = 27 
-LL = -9494.8692879 
-diff = 1.274263e-05 
-
-iter = 28 
-LL = -9494.8692793 
-diff = 8.661134e-06 
-
+> x0 <- BaumWelch(x0, bwcontrol(prt=FALSE))
 > 
 > print(summary(x0))
 $variable.names
@@ -184,6 +76,7 @@ $family
 
 $glmformula
 y ~ x1
+<environment: 0x8cb8ec8>
 
 $link
 [1] "identity"
@@ -201,119 +94,7 @@ $n
 > 
 > x1 <- mmglm1(x0$x$y, Pi, delta, glmfamily, beta, Xdesign, sigma=sd, msg=FALSE)
 > 
-> x1 <- BaumWelch(x1)
-iter = 1 
-LL = -9496.9179656 
-diff = Inf 
-
-iter = 2 
-LL = -9495.6762543 
-diff = 1.241711 
-
-iter = 3 
-LL = -9495.3115076 
-diff = 0.3647467 
-
-iter = 4 
-LL = -9495.1363015 
-diff = 0.1752061 
-
-iter = 5 
-LL = -9495.0385495 
-diff = 0.097752 
-
-iter = 6 
-LL = -9494.9793484 
-diff = 0.05920107 
-
-iter = 7 
-LL = -9494.9418118 
-diff = 0.03753661 
-
-iter = 8 
-LL = -9494.9174189 
-diff = 0.02439295 
-
-iter = 9 
-LL = -9494.9013590 
-diff = 0.01605981 
-
-iter = 10 
-LL = -9494.8907103 
-diff = 0.01064872 
-
-iter = 11 
-LL = -9494.8836205 
-diff = 0.007089785 
-
-iter = 12 
-LL = -9494.8788880 
-diff = 0.004732544 
-
-iter = 13 
-LL = -9494.8757231 
-diff = 0.003164847 
-
-iter = 14 
-LL = -9494.8736036 
-diff = 0.002119523 
-
-iter = 15 
-LL = -9494.8721824 
-diff = 0.001421223 
-
-iter = 16 
-LL = -9494.8712283 
-diff = 0.0009540633 
-
-iter = 17 
-LL = -9494.8705872 
-diff = 0.0006411466 
-
-iter = 18 
-LL = -9494.8701559 
-diff = 0.0004313091 
-
-iter = 19 
-LL = -9494.8698654 
-diff = 0.000290445 
-
-iter = 20 
-LL = -9494.8696696 
-diff = 0.0001957854 
-
-iter = 21 
-LL = -9494.8695375 
-diff = 0.0001321106 
-
-iter = 22 
-LL = -9494.8694483 
-diff = 8.923525e-05 
-
-iter = 23 
-LL = -9494.8693880 
-diff = 6.033659e-05 
-
-iter = 24 
-LL = -9494.8693471 
-diff = 4.083868e-05 
-
-iter = 25 
-LL = -9494.8693195 
-diff = 2.767026e-05 
-
-iter = 26 
-LL = -9494.8693007 
-diff = 1.876762e-05 
-
-iter = 27 
-LL = -9494.8692879 
-diff = 1.274270e-05 
-
-iter = 28 
-LL = -9494.8692793 
-diff = 8.661058e-06 
-
+> x1 <- BaumWelch(x1, bwcontrol(prt=FALSE))
 > 
 > print(summary(x1))
 $delta
@@ -359,3 +140,6 @@ $n
 > 
 > 
 > 
+> proc.time()
+   user  system elapsed 
+ 13.740   0.080  14.056 

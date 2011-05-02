@@ -1,11 +1,14 @@
 
-R version 2.11.1 (2010-05-31)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.13.0 (2011-04-13)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i486-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
 Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
 
 R is a collaborative project with many contributors.
 Type 'contributors()' for more information and
@@ -18,6 +21,7 @@ Type 'q()' to quit R.
 > #    Gaussian with identity link function, mu=beta0
 > #    one single series
 > #    Compare dthmm and mmglm1
+> #    R CMD BATCH --no-save dthmm-mmglm1-gaussian.R dthmm-mmglm1-gaussian.Rout.save
 > 
 > library(HiddenMarkov)
 > 
@@ -41,67 +45,7 @@ Type 'q()' to quit R.
 > print(logLik(y))
 [1] -9233.768
 > 
-> tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, tol=1e-05))
-iter = 1 
-LL = -9233.7680659 
-diff = Inf 
-
-iter = 2 
-LL = -9232.7561502 
-diff = 1.011916 
-
-iter = 3 
-LL = -9232.6885877 
-diff = 0.0675625 
-
-iter = 4 
-LL = -9232.6711579 
-diff = 0.01742981 
-
-iter = 5 
-LL = -9232.6653861 
-diff = 0.005771873 
-
-iter = 6 
-LL = -9232.6630965 
-diff = 0.002289544 
-
-iter = 7 
-LL = -9232.6620565 
-diff = 0.001039990 
-
-iter = 8 
-LL = -9232.6615416 
-diff = 0.0005148677 
-
-iter = 9 
-LL = -9232.6612745 
-diff = 0.0002671392 
-
-iter = 10 
-LL = -9232.6611326 
-diff = 0.0001418682 
-
-iter = 11 
-LL = -9232.6610565 
-diff = 7.617395e-05 
-
-iter = 12 
-LL = -9232.6610154 
-diff = 4.110887e-05 
-
-iter = 13 
-LL = -9232.6609931 
-diff = 2.223722e-05 
-
-iter = 14 
-LL = -9232.6609811 
-diff = 1.204158e-05 
-
-iter = 15 
-LL = -9232.6609746 
-diff = 6.523998e-06 
-
+> tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, tol=1e-05, prt=FALSE))
 > 
 > print(summary(tmp))
 $delta
@@ -150,67 +94,7 @@ $n
 > print(logLik(y1))
 [1] -9233.768
 > 
-> tmp1 <- BaumWelch(y1, bwcontrol(posdiff=FALSE, tol=1e-05))
-iter = 1 
-LL = -9233.7680659 
-diff = Inf 
-
-iter = 2 
-LL = -9232.7561502 
-diff = 1.011916 
-
-iter = 3 
-LL = -9232.6885877 
-diff = 0.0675625 
-
-iter = 4 
-LL = -9232.6711579 
-diff = 0.01742981 
-
-iter = 5 
-LL = -9232.6653861 
-diff = 0.005771873 
-
-iter = 6 
-LL = -9232.6630965 
-diff = 0.002289544 
-
-iter = 7 
-LL = -9232.6620565 
-diff = 0.001039990 
-
-iter = 8 
-LL = -9232.6615416 
-diff = 0.0005148677 
-
-iter = 9 
-LL = -9232.6612745 
-diff = 0.0002671392 
-
-iter = 10 
-LL = -9232.6611326 
-diff = 0.0001418681 
-
-iter = 11 
-LL = -9232.6610565 
-diff = 7.6174e-05 
-
-iter = 12 
-LL = -9232.6610154 
-diff = 4.110894e-05 
-
-iter = 13 
-LL = -9232.6609931 
-diff = 2.223714e-05 
-
-iter = 14 
-LL = -9232.6609811 
-diff = 1.204158e-05 
-
-iter = 15 
-LL = -9232.6609746 
-diff = 6.524006e-06 
-
+> tmp1 <- BaumWelch(y1, bwcontrol(posdiff=FALSE, tol=1e-05, prt=FALSE))
 > 
 > print(summary(tmp1))
 $delta
@@ -282,3 +166,6 @@ $sd
 > 
 > 
 > 
+> proc.time()
+   user  system elapsed 
+  8.332   0.412   8.790 
