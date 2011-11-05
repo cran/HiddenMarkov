@@ -94,6 +94,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{pglm}}, \code{\link{pmmglm}}: Change all \code{log} arguments to \code{log.p}. (19 Dec 2010)
 
 \item Revise examples in \code{/tests} directory. (02 May 2011)
+
+\item Implement very basic NAMESPACE and remove file \code{/R/zzz.R}. (5 Nov 2011)
 }}
 
 

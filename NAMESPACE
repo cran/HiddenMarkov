@@ -1,0 +1,5 @@
+useDynLib(HiddenMarkov)
+
+# Export all names
+exportPattern(".")
+
