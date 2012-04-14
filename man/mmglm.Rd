@@ -76,10 +76,12 @@ beta <- matrix(c(0.1, -0.1,
 x <- mmglm0(NULL, Pi, delta, family="gaussian", link="identity",
             beta=beta, sigma=c(1, 2))
 
-n <- 5000
+n <- 1000
 x <- simulate(x, nsim=n, seed=10)
 
-y <- BaumWelch(x)
+#   Increase maxiter below to achieve convergence
+#   Has been restricted to minimise time of package checks
+y <- BaumWelch(x, bwcontrol(maxiter=2))
 
 w <- hist(residuals(y))
 z <- seq(-3, 3, 0.01)
@@ -133,7 +135,9 @@ y <- simulate(y, seed=5)
 
 # --- Estimation ---
 
-tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, tol=1e-05))
+#   Increase maxiter below to achieve convergence
+#   Has been restricted to minimise time of package checks
+tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, maxiter=2))
 print(summary(tmp))
 
 
@@ -142,7 +146,7 @@ print(summary(tmp))
 #         using mmglm1
 
 #   n = series length
-n <- 5000
+n <- 1000
 
 #   the range of x need changing according to the glmfamily
 x <- seq(-1, 1.5, length.out=n)
@@ -180,7 +184,9 @@ y <- simulate(y, seed=5)
 
 # --- Estimation ---
 
-tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, maxiter=100))
+#   Increase maxiter below to achieve convergence
+#   Has been restricted to minimise time of package checks
+tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, maxiter=2))
 print(summary(tmp))
 
 
@@ -246,7 +252,9 @@ if (require(snow)){
                             "horoeka.localdomain", "localhost"))
 }}
 
-tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, tol=1e-02),
+#   Increase maxiter below to achieve convergence
+#   Has been restricted to minimise time of package checks
+tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, maxiter=2),
                  SNOWcluster=cl)
 
 \dontrun{
@@ -305,7 +313,9 @@ y <- simulate(y, seed=5)
 
 # --- Estimation ---
 
-tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, maxiter=500))
+#   Increase maxiter below to achieve convergence
+#   Has been restricted to minimise time of package checks
+tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, maxiter=1))
 print(summary(tmp))
 }
 

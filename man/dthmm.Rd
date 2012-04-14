@@ -16,7 +16,7 @@ dthmm(x, Pi, delta, distn, pm, pn = NULL, discrete = NULL,
   \item{x}{is a vector of length \eqn{n} containing the univariate observed process. Alternatively, \code{x} could be specified as \code{NULL}, meaning that the data will be added later (e.g. simulated).}
   \item{Pi}{is the \eqn{m \times m}{m*m} transition probability matrix of the homogeneous hidden Markov chain.}
   \item{delta}{is the marginal probability distribution of the \eqn{m} hidden states at the first time point.}
-  \item{distn}{is a character string with the distribution name, e.g. \code{"norm"} or \code{"pois"}. If \code{distn="wxyz"}, then functions \code{dwxyz} (density), \code{pwxyz} (distribution function) and \code{rwxyz} (random number generator) should exist (see below for more details).}
+  \item{distn}{is a character string with the abbreviated distribution name. Distributions provided by the package are \code{\link{Beta}} (\code{"beta"}), \code{\link{Binomial}} (\code{"binom"}), \code{\link{Exponential}} (\code{"exp"}), \code{\link{GammaDist}} (\code{"gamma"}), \code{\link{Lognormal}} (\code{"lnorm"}), \code{\link{Logistic}} (\code{"logis"}), \code{\link{Normal}} (\code{"norm"}), and \code{\link{Poisson}} (\code{"pois"}). See topic \code{\link{Mstep}}, Section \dQuote{Modifications and Extensions}, to extend to other distributions.}
   \item{pm}{is a list object containing the (Markov dependent) parameter values associated with the distribution of the observed process (see below).}
   \item{pn}{is a list object containing the observation dependent parameter values associated with the distribution of the observed process (see below).}
   \item{discrete}{is logical, and is \code{TRUE} if \code{distn} is a discrete distribution. Set automatically for distributions already contained in the package.}
@@ -57,14 +57,6 @@ for all \eqn{i} (i.e. all time points), and \eqn{j,k = 1, \cdots, m}{j,k = 1, ..
 
 \item The Markov chain is said to be \emph{stationary} if the marginal distribution is the same over time, i.e. for each \eqn{j}, \eqn{\delta_j = \Pr\{ C_i = j \}}{delta_j = Pr{ C_i = j }} is constant for all \eqn{i}. The marginal distribution is denoted by \eqn{\delta = (\delta_1, \cdots, \delta_m)}{delta = (delta_1, ..., delta_m)}.
 }}
-
-\section{Argument distn}{
-Note that the observed process \code{x} is univariate, i.e. \code{x} is a vector.
-
-If \code{distn="wxyz"}, then functions \code{dwxyz} (density), \code{pwxyz} (distribution function) and \code{rwxyz} (random number generator) should exist. These functions \emph{must} behave in the same vectorised way as \code{\link{dnorm}} and \code{\link{dpois}}. For example, if \code{x} is a vector, and \code{mean} and \code{sd} are scalars, then \code{\link{dnorm}(x, mean, sd)} calculates the density for each element in \code{x} using the scalar values of \code{mean} and \code{sd}; thus the returned value is the same length as \code{x}. Alternatively, if \code{x} is a scalar and \code{mean} and \code{sd} are vectors, both of the same length, then the returned value is the same length as \code{mean} and is the density of \code{x} evaluated at the corresponding pairs of values of \code{mean} and \code{sd}. The third possibility is that \code{x} and one of the distribution parameters, say \code{sd}, are vectors of the same length, and \code{mu} is a scalar. Then the returned vector will be of the same length as \code{x}, where the \eqn{i}th value is the density of \code{x[i]} with mean \code{mean} and standard deviation \code{sd[i]}.
-
-Note that the functions for the \code{\link{Multinomial}} distribution do not have this behaviour. Here the vector \code{x} contains the counts for \emph{one} multinomial experiment, so the vector is used to characterise the multivariate character of the random variable rather than multiple univariate realisations. Further, the distribution parameters (i.e. category probabilities) are characterised as one vector rather than a separate sequence of parameters.
-}
 
 \section{List Object pm}{
 The list object \code{pm} contains parameter values for the probability distribution of the observed process that are dependent on the hidden Markov state. These parameters are generally required to be estimated. See \dQuote{Modifications} in topic \code{\link{Mstep}} when some do not require estimation.

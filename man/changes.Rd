@@ -96,6 +96,16 @@ This page contains a listing of recent changes made to the package.
 \item Revise examples in \code{/tests} directory. (02 May 2011)
 
 \item Implement very basic NAMESPACE and remove file \code{/R/zzz.R}. (5 Nov 2011)
+
+\item List functions explicitly in NAMESPACE. (19 Dec 2011)
+
+\item \code{\link{mmglm}} and \code{\link{neglogLik}}: Restrict the number of iterations in examples on manual pages to minimise time during package checks. (19 Dec 2011)
+
+\item \code{modify.func}: New function to allow the user to modify package functions in the NAMESPACE set-up. This function violates the CRAN policy as users are not supposed to change the NAMESPACE on such packages. Some examples where it is required to modify package functions will not work, for example, the second example in \code{\link{Mstep}}. (7 Mar 2012)
+
+\item \code{modify.func}: Function removed. See the second example in \code{\link{Mstep}} for a work-around when package functions need to be modified. (14 Apr 2012)
+
+\item \code{\link{Mstep}}: Revised documentation about distribution requirements and ways to include other distributions into the software framework. (14 Apr 2012)
 }}
 
 

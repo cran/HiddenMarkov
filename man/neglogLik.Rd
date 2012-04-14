@@ -49,7 +49,7 @@ x <- dthmm(NULL, Pi, delta, "exp", list(rate=c(5, 2, 0.2)), nonstat=FALSE)
 x <- simulate(x, nsim=5000, seed=5)
 
 #   Approximate solution using BaumWelch
-x1 <- BaumWelch(x, control=bwcontrol(maxiter=1000, tol=1e-5))
+x1 <- BaumWelch(x, control=bwcontrol(maxiter=10, tol=1e-5))
 
 
 #   Exact solution using nlm
@@ -64,8 +64,10 @@ allmap <- function(y, p){
 }
 
 p <- c(Pi2vector(x$Pi), log(x$pm$rate))
+#   Increase iterlim below to achieve convergence
+#   Has been restricted to minimise time of package checks
 z <- nlm(neglogLik, p, object=x, pmap=allmap,
-         print.level=2, gradtol=0.000001, iterlim=500)
+         print.level=2, gradtol=0.000001, iterlim=2)
 x2 <- allmap(x, z$estimate)
 
 
@@ -142,15 +144,17 @@ allmap <- function(y, p){
 }
 
 #    Start by using the EM algorithm
-x1 <- BaumWelch(x, control=bwcontrol(maxiter=1000, tol=0.01))
+x1 <- BaumWelch(x, control=bwcontrol(maxiter=10, tol=0.01))
 
 #    use above as initial values for the nlm function
 #    map parameters to a single vector, fixed delta
 p <- c(Q2vector(x1$Q), log(x1$lambda))
 
-#    complete estimation using nlm
+#    Complete estimation using nlm
+#    Increase iterlim below to achieve convergence
+#    Has been restricted to minimise time of package checks
 z <- nlm(neglogLik, p, object=x, pmap=allmap,
-         print.level=2, gradtol=0.000001, iterlim=500)
+         print.level=2, gradtol=0.000001, iterlim=5)
 
 #    mmpp object with estimated parameter values from nlm
 x2 <- allmap(x, z$estimate)
