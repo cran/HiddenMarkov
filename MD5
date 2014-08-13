@@ -1,11 +1,11 @@
-e2f2ecedcac13a85835bfea6a20d9c75 *DESCRIPTION
-3034f531616f0c2a2a3923ed73ee7331 *NAMESPACE
+b1eb5c4c445caf219bbdb322fcbb1f03 *DESCRIPTION
+d3eeb3c4fde05ebbe113696421a346da *NAMESPACE
 97d0aa19ed9a838c571235c0f74112b3 *NEWS
 b36ac435e05cae710372bdb74c8c3293 *R/BaumWelch.R
 507db1a5cdfb9cdf4e5f3809572c6fa5 *R/BaumWelch.dthmm.R
 2fa01127f8d4a4c9b610e84d48bfc1a5 *R/BaumWelch.mmglm0.R
 9a85721be472f1b93b3544a7810a51b3 *R/BaumWelch.mmglm1.R
-99a15e1b1e789e09f79ab52fbf85095a *R/BaumWelch.mmglmlong1.R
+d19249e217a98beeb692ae07714fa427 *R/BaumWelch.mmglmlong1.R
 c18fd8bf1be0ee225d57013d648f30e0 *R/BaumWelch.mmpp.R
 9776b0b112d1b87dca07f4c0e724a8a6 *R/Estep.R
 0adc3fa001f46bad1c7406e10ffc9dd2 *R/Estep.mmglm1.R
@@ -87,9 +87,9 @@ bfee2e728683d14aba32abdbcd7c0883 *demo/lnorm.R
 890f3cd71b860f6a19233c5cbfc37f22 *demo/logis.R
 0f808acf3f40e8df57d84906e9c816e4 *demo/norm.R
 8792e1a4c6cf8eb82c7fab9023ca58b3 *inst/CITATION
-09d5e0b25cba8ed4ce28b42339be25c7 *inst/doc/index.html
-32e285c09e83b87d5b20fbcec4b6056a *man/BaumWelch.Rd
-b89496248497930f40f0db4ddbb3b85d *man/Changes.Rd
+70840df96372833d27618e4fb9234719 *inst/doc/index.html
+c1e21a8e0ebd1b5467c3a60919c980ab *man/BaumWelch.Rd
+f3744fef1f1d23143b911b7ae0c406b0 *man/Changes.Rd
 69e9392ae7ec514b115a4e47c83abeb3 *man/Demonstration.Rd
 e055514980070bfeab459d960eb967bc *man/Estep.Rd
 259d9b8830abf98c98c091b2e8168bf1 *man/HiddenMarkov-defunct.Rd
@@ -107,7 +107,7 @@ e1412a61da030aeddf52f0046550fb2c *man/forwardback.Rd
 bb8c2a98efbc4d0bb0b9d4f6f008e1ab *man/logLik.Rd
 929b0f1b02ec8d880d4b2fe9a99c1135 *man/mchain.Rd
 3cb7668d2cac7854f4d2ba00c354efca *man/mmglm-2nd-level-functions.Rd
-fefe3045fe6f0862343dd5a2e548916e *man/mmglm.Rd
+aac51a7a71d80368ba8c2508a394074e *man/mmglm.Rd
 56950ae6c4919547484cc9c6b084a2ef *man/mmpp-2nd-level-functions.Rd
 b1b787110ac4bcd725f377c3b112c5f4 *man/mmpp.Rd
 342773a7da5260186da1bf602d6169c4 *man/neglogLik.Rd

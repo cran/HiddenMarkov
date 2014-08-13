@@ -242,20 +242,20 @@ y <- simulate(y, seed=5)
 # --- Estimation ---
 
 #    Note: the "Not run" blocks below are not run during package checks
-#    as the makeSOCKcluster definition is specific to my network,
+#    as the makePSOCKcluster definition is specific to my network,
 #    modify accordingly if you want parallel processing.
 
 cl <- NULL
 \dontrun{
-if (require(snow)){
-    cl <- makeSOCKcluster(c("localhost", "horoeka.localdomain", 
-                            "horoeka.localdomain", "localhost"))
+if (require(parallel)){
+    cl <- makePSOCKcluster(c("localhost", "horoeka.localdomain", 
+                             "horoeka.localdomain", "localhost"))
 }}
 
 #   Increase maxiter below to achieve convergence
 #   Has been restricted to minimise time of package checks
 tmp <- BaumWelch(y, bwcontrol(posdiff=FALSE, maxiter=2),
-                 SNOWcluster=cl)
+                 PSOCKcluster=cl)
 
 \dontrun{
 if (!is.null(cl)){

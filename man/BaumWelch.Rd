@@ -16,7 +16,7 @@ BaumWelch(object, control, ...)
 \method{BaumWelch}{dthmm}(object, control = bwcontrol(), ...)
 \method{BaumWelch}{mmglm0}(object, control = bwcontrol(), ...)
 \method{BaumWelch}{mmglm1}(object, control = bwcontrol(), ...)
-\method{BaumWelch}{mmglmlong1}(object, control = bwcontrol(), SNOWcluster=NULL,
+\method{BaumWelch}{mmglmlong1}(object, control = bwcontrol(), PSOCKcluster=NULL,
           tmpfile=NULL, ...)
 \method{BaumWelch}{mmpp}(object, control = bwcontrol(), ...)
 }
@@ -24,7 +24,7 @@ BaumWelch(object, control, ...)
 \arguments{
   \item{object}{an object of class \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"}, or \code{"\link{mmpp}"}.}
   \item{control}{a list of control settings for the iterative process. These can be changed by using the function \code{\link{bwcontrol}}.}
-  \item{SNOWcluster}{see section below called \dQuote{Parallel Processing}.}
+  \item{PSOCKcluster}{see section below called \dQuote{Parallel Processing}.}
   \item{tmpfile}{name of a file (.Rda) into which estimates are written at each 10th iteration. The model object is called \code{object}. If \code{NULL} (default), no file is created.}
   \item{\dots}{other arguments.}
 }
@@ -47,19 +47,19 @@ An object of class \code{"\link{dthmm}"} will also contain
 }
 
 \section{Parallel Processing}{
-In longitudinal models, the forward and backward equations need to be calculated for each individual subject. These can be done independently, the results being concatenated to be used in the E-step. If the argument \code{SNOWcluster} is set, subjects are divided equally between each node in the cluster for the calculation of the forward and backward equations. This division is very basic, and assumes that all nodes run at a roughly comparable speed.
+In longitudinal models, the forward and backward equations need to be calculated for each individual subject. These can be done independently, the results being concatenated to be used in the E-step. If the argument \code{PSOCKcluster} is set, subjects are divided equally between each node in the cluster for the calculation of the forward and backward equations. This division is very basic, and assumes that all nodes run at a roughly comparable speed.
 
 If the communication between nodes is slow and the dataset is small, then the time taken to allocate the work to the various nodes may in fact take more time than simply using one processor to perform all of the calculations.
 
 The required steps in initiating parallel processing are as follows.
 \preformatted{
-#   load the "snow" package
-library(snow)
+#   load the "parallel" package
+library(parallel)
 
 #   define the SNOW cluster object, e.g. a SOCK cluster
 #   where each node has the same R installation.
-cl <- makeSOCKcluster(c("localhost", "horoeka.localdomain", 
-                        "horoeka.localdomain", "localhost"))
+cl <- makePSOCKcluster(c("localhost", "horoeka.localdomain", 
+                         "horoeka.localdomain", "localhost"))
 
 #   A more general setup: Totara is Fedora, Rimu is Debian:
 #   Use 2 processors on Totara, 1 on Rimu:
@@ -73,12 +73,12 @@ cl <- makeCluster(list(totara, totara, rimu), type="SOCK")
 
 #   then define the required model object
 #   say the model object is called x
-BaumWelch(x, SNOWcluster=cl)
+BaumWelch(x, PSOCKcluster=cl)
 
 #   stop the R jobs on the slave machines
 stopCluster(cl)
 }
-Note that the communication method does not need to be \code{SOCKS}; see the \pkg{snow} package documentation, topic \code{\link[snow]{snow-startstop}}, for other options. Further, if some nodes are on other machines, the firewalls may need to be tweaked. The master machine initiates the \R jobs on the slave machines by communicating through port 22 (use of security keys are needed rather than passwords), and subsequent communications through port 10187. Again, these details can be tweaked in the options settings within the \pkg{snow} package.
+Note that the communication method does not need to be \code{SOCKS}; see the \pkg{parallel} package documentation, topic \code{\link[parallel]{makeCluster}}, for other options. Further, if some nodes are on other machines, the firewalls may need to be tweaked. The master machine initiates the \R jobs on the slave machines by communicating through port 22 (use of security keys are needed rather than passwords), and subsequent communications through port 10187. Again, these details can be tweaked in the options settings within the \pkg{parallel} package.
 }
 
 \seealso{

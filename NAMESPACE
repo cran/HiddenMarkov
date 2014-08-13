@@ -49,6 +49,8 @@ export(
     Q2vector,
     vector2Pi,
     vector2Q,
+    dmmglm,
+    pmmglm,
 
     Baum.Welch0.mmpp,
     Baum.Welch.mmpp,
@@ -69,8 +71,6 @@ export(
 #      as.mmglm0
 #      dglm
 #      pglm
-#      dmmglm
-#      pmmglm
 #      getj
 #      makedensity1
 #      makedensity

@@ -1,6 +1,6 @@
-BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), SNOWcluster=NULL,
+BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), PSOCKcluster=NULL,
                                   tmpfile=NULL, ...){
-    #   using snow cluster
+    #   using PSOCK cluster
     tol <- control$tol
     oldLL <- -Inf
     m <- nrow(object$Pi)
@@ -39,26 +39,26 @@ BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), SNOWcluster=NULL,
         return(list(LL=LL, sumcondu=sumcondu, sumcondv=sumcondv, condu=condu))
     }
     #-------------------------------------------------------------
-    if (!is.null(SNOWcluster)){
-        numnodes <- length(SNOWcluster)
+    if (!is.null(PSOCKcluster)){
+        numnodes <- length(PSOCKcluster)
         pernode <- trunc(N/numnodes)
         tmp <- subnms
         subnms <- list()
         for (i in 1:(numnodes-1))
             subnms[[i]] <- tmp[(1+(i-1)*pernode):(i*pernode)]
         subnms[[numnodes]] <- tmp[(1+(numnodes-1)*pernode):N]
-        clusterExport(SNOWcluster, c("mmglm1", "Estep.mmglm1", "dmmglm",
+        clusterExport(PSOCKcluster, c("mmglm1", "Estep.mmglm1", "dmmglm",
                                      "forwardback.dthmm"))
     }
     for (iter in 1:control$maxiter) {
-        if (!is.null(SNOWcluster)){
-            tmp <- clusterApply(SNOWcluster, subnms, Esteploop,
+        if (!is.null(PSOCKcluster)){
+            tmp <- clusterApply(PSOCKcluster, subnms, Esteploop,
                                  object=object, m=m, n=n)
             LL <- tmp[[1]]$LL
             sumcondu <- tmp[[1]]$sumcondu
             sumcondv <- tmp[[1]]$sumcondv
             condu <- tmp[[1]]$condu
-            for (i in 2:length(SNOWcluster)){
+            for (i in 2:length(PSOCKcluster)){
                 LL <- LL + tmp[[i]]$LL
                 sumcondu <- sumcondu + tmp[[i]]$sumcondu
                 sumcondv <- sumcondv + tmp[[i]]$sumcondv
