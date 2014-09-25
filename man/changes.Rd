@@ -108,6 +108,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{Mstep}}: Revised documentation about distribution requirements and ways to include other distributions into the software framework. (14 Apr 2012)
 
 \item The package \pkg{snow} has been superseded by \pkg{parallel}, changed where needed. In \code{\link{BaumWelch.mmglmlong1}} arguments \code{makeSOCKcluster} and \code{SNOWcluster} renamed to \code{makePSOCKcluster} and \code{PSOCKcluster}, respectively. Functions \code{dmmglm} and \code{pmmglm} added to exported namespace (required for parallel processing). (13 Aug 2014)
+
+\item \code{\link{BaumWelch.mmglmlong1}}: Call to \code{clusterApply} and \code{clusterExport} changed to \code{parallel::clusterApply} and \code{parallel::clusterExport}, respectively. (25 Sep 2014)
 }}
 
 

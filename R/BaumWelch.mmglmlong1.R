@@ -47,12 +47,12 @@ BaumWelch.mmglmlong1 <- function (object, control=bwcontrol(), PSOCKcluster=NULL
         for (i in 1:(numnodes-1))
             subnms[[i]] <- tmp[(1+(i-1)*pernode):(i*pernode)]
         subnms[[numnodes]] <- tmp[(1+(numnodes-1)*pernode):N]
-        clusterExport(PSOCKcluster, c("mmglm1", "Estep.mmglm1", "dmmglm",
+        parallel::clusterExport(PSOCKcluster, c("mmglm1", "Estep.mmglm1", "dmmglm",
                                      "forwardback.dthmm"))
     }
     for (iter in 1:control$maxiter) {
         if (!is.null(PSOCKcluster)){
-            tmp <- clusterApply(PSOCKcluster, subnms, Esteploop,
+            tmp <- parallel::clusterApply(PSOCKcluster, subnms, Esteploop,
                                  object=object, m=m, n=n)
             LL <- tmp[[1]]$LL
             sumcondu <- tmp[[1]]$sumcondu

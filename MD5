@@ -1,11 +1,11 @@
-b1eb5c4c445caf219bbdb322fcbb1f03 *DESCRIPTION
+fc5c6b0daa4018100c9f495b771cfb0e *DESCRIPTION
 d3eeb3c4fde05ebbe113696421a346da *NAMESPACE
 97d0aa19ed9a838c571235c0f74112b3 *NEWS
 b36ac435e05cae710372bdb74c8c3293 *R/BaumWelch.R
 507db1a5cdfb9cdf4e5f3809572c6fa5 *R/BaumWelch.dthmm.R
 2fa01127f8d4a4c9b610e84d48bfc1a5 *R/BaumWelch.mmglm0.R
 9a85721be472f1b93b3544a7810a51b3 *R/BaumWelch.mmglm1.R
-d19249e217a98beeb692ae07714fa427 *R/BaumWelch.mmglmlong1.R
+9819615c35cbcdbf9ae58019373bfa67 *R/BaumWelch.mmglmlong1.R
 c18fd8bf1be0ee225d57013d648f30e0 *R/BaumWelch.mmpp.R
 9776b0b112d1b87dca07f4c0e724a8a6 *R/Estep.R
 0adc3fa001f46bad1c7406e10ffc9dd2 *R/Estep.mmglm1.R
@@ -89,7 +89,7 @@ bfee2e728683d14aba32abdbcd7c0883 *demo/lnorm.R
 8792e1a4c6cf8eb82c7fab9023ca58b3 *inst/CITATION
 70840df96372833d27618e4fb9234719 *inst/doc/index.html
 c1e21a8e0ebd1b5467c3a60919c980ab *man/BaumWelch.Rd
-f3744fef1f1d23143b911b7ae0c406b0 *man/Changes.Rd
+49298849fcd6e23fe70cd37ae7c7a90d *man/Changes.Rd
 69e9392ae7ec514b115a4e47c83abeb3 *man/Demonstration.Rd
 e055514980070bfeab459d960eb967bc *man/Estep.Rd
 259d9b8830abf98c98c091b2e8168bf1 *man/HiddenMarkov-defunct.Rd
