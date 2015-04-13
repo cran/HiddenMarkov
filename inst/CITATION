@@ -1,9 +1,8 @@
-desc <- packageDescription("HiddenMarkov")
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date)
-vers <- paste("R package version", desc$Version)
-url <- desc$URL
-package <- desc$Package
-title <- paste(package, ": ", desc$Title, sep="")
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+vers <- paste("R package version", meta$Version)
+url <- meta$URL
+package <- meta$Package
+title <- paste(package, ": ", meta$Title, sep="")
 
 citHeader(paste("To cite package '", package,
                 "' in publications use:", sep=""))

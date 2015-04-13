@@ -56,7 +56,7 @@ Dempster, A.P.; Laird, N.M. & Rubin, D.B. (1977). Maximum likelihood from incomp
 
 Elliott, R.J.; Aggoun, L. & Moore, J.B. (1994). \emph{Hidden Markov Models: Estimation and Control.} Springer-Verlag, New York.
 
-Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{HiddenMarkov}.} Statistics Research Associates, Wellington. URL: \url{http://goo.gl/J6s7M}, file \dQuote{notes.pdf}.
+Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{HiddenMarkov}.} Statistics Research Associates, Wellington. URL: \url{ftp://ftp.gns.cri.nz/pub/davidh/sslib/other/notes.pdf}
 
 Hartley, H.O. (1958). Maximum likelihood estimation from incomplete data. \emph{Biometrics} \bold{14(2)}, 174--194. DOI: \url{http://dx.doi.org/10.2307/2527783}
 
