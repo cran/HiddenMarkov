@@ -1,6 +1,6 @@
-912e997e608839ad27e6772d50c99eaa *DESCRIPTION
-d3eeb3c4fde05ebbe113696421a346da *NAMESPACE
-97d0aa19ed9a838c571235c0f74112b3 *NEWS
+808fef434c8a39e1a2551bd3b4840b10 *DESCRIPTION
+38daa956d2b7b5c80f0cf748e6f9b827 *NAMESPACE
+5986e6402724232d4b66a8f2cd6af77b *NEWS
 b36ac435e05cae710372bdb74c8c3293 *R/BaumWelch.R
 507db1a5cdfb9cdf4e5f3809572c6fa5 *R/BaumWelch.dthmm.R
 2fa01127f8d4a4c9b610e84d48bfc1a5 *R/BaumWelch.mmglm0.R
@@ -89,14 +89,14 @@ bfee2e728683d14aba32abdbcd7c0883 *demo/lnorm.R
 78dbf968c06379f63ec270565efeda51 *inst/CITATION
 70840df96372833d27618e4fb9234719 *inst/doc/index.html
 c1e21a8e0ebd1b5467c3a60919c980ab *man/BaumWelch.Rd
-a1378baa0a72e67b2ccc8e426e6f4611 *man/Changes.Rd
+1ef8ee92866d6a3b00d6cc439d857d82 *man/Changes.Rd
 69e9392ae7ec514b115a4e47c83abeb3 *man/Demonstration.Rd
 e055514980070bfeab459d960eb967bc *man/Estep.Rd
 259d9b8830abf98c98c091b2e8168bf1 *man/HiddenMarkov-defunct.Rd
 1279c1a0ad1f56c1e1b1716a05b2abb7 *man/HiddenMarkov-dthmm-deprecated.Rd
 46a03a92b90e340e4607892fd48f7fe1 *man/HiddenMarkov-internal.Rd
 e84d3bb4d8054b3c8915fd08d7d60d17 *man/HiddenMarkov-mmpp-deprecated.Rd
-57a2fad328dd77ae6021e85a3635e88b *man/HiddenMarkov.Rd
+4ec88718a61cb81ca92a08fd140b7661 *man/HiddenMarkov.Rd
 562a49d4cfaff3a1271f9d9a624cbb71 *man/Mstep.Rd
 9b37b4a7908d9847db12329392142b48 *man/Transform-Parameters.Rd
 183ef6c5941245d251cc21fffcbb8985 *man/Viterbi.Rd

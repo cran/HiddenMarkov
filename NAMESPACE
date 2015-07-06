@@ -76,8 +76,12 @@ export(
 #      makedensity
 #      makedistn
 
+importFrom(stats, coefficients, dbinom, dgamma, dnorm, dpois,
+           fitted, formula, glm, glm.control, glm.fit, logLik,
+           pbinom, pgamma, pnorm, ppois, qnorm, rbinom,
+           residuals, rexp, rgamma, rnorm, rpois, runif,
+           simulate)
 
-importFrom(stats, simulate, logLik)
 
 #   methods for class "mchain"
 S3method(simulate, mchain)

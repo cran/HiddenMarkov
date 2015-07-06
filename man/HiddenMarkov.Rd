@@ -16,6 +16,8 @@ The classes of models currently fitted by the package are listed below. Each are
 is described under the topic \code{\link{dthmm}}. This model can be simulated or fitted to data by defining the required model structure within an object of class \code{"\link{dthmm}"}.}
 \item{Markov Modulated Generalised Linear Model:}{
 is described under the topic \code{\link{mmglm1}}.}
+\item{Markov Modulated Generalised Linear Longitudinal Model:}{
+is described under the topic \code{\link{mmglmlong1}}.}
 \item{Markov Modulated Poisson Process:}{
 is described under the topic \code{\link{mmpp}}. This model can be simulated or fitted to data by defining the required model structure within an object of class \code{"\link{mmpp}"}.}
 }
@@ -31,7 +33,7 @@ The main tasks performed by the package are listed below. These can be achieved 
 \item{Log-Likelihood:}{can be calculated with the function \code{\link{logLik}}.}
 \item{Prediction of the Markov States:}{can be performed by the function \code{\link{Viterbi}}.}
 }
-All other functions in the package are called from within the above generic functions, and only need to be used if their output is specifically required. I have referred to some of these other functions as \dQuote{2nd level} functions, for example see the topic \code{\link{mmpp-2nd-level-functions}}.
+All other functions in the package are called from within the above generic functions, and only need to be used if their output is specifically required. We have referred to some of these other functions as \dQuote{2nd level} functions, for example see the topic \code{\link{mmpp-2nd-level-functions}}.
 }
 
 
@@ -50,9 +52,9 @@ Many of the functions contained in the package are based on those of Walter Zucc
 \references{
 Baum, L.E.; Petrie, T.; Soules, G. & Weiss, N. (1970). A maximization technique occurring in the statistical analysis of probabilistic functions of Markov chains. \emph{Annals of Mathematical Statistics} \bold{41(1)}, 164--171. DOI: \url{http://dx.doi.org/10.1214/aoms/1177697196}
 
-Charnes, A.; Frome, E.L. & Yu, P.L. (1976). The equivalence of generalized least squares and maximum likelihood estimates in the exponential family. \emph{JASA} \bold{71(353)}, 169--171. DOI: \url{http://dx.doi.org/10.2307/2285762}
+Charnes, A.; Frome, E.L. & Yu, P.L. (1976). The equivalence of generalized least squares and maximum likelihood estimates in the exponential family. \emph{J. American Statist. Assoc.} \bold{71(353)}, 169--171. DOI: \url{http://dx.doi.org/10.2307/2285762}
 
-Dempster, A.P.; Laird, N.M. & Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38.
+Dempster, A.P.; Laird, N.M. & Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38. URL: \url{http://www.jstor.org/stable/2984875}
 
 Elliott, R.J.; Aggoun, L. & Moore, J.B. (1994). \emph{Hidden Markov Models: Estimation and Control.} Springer-Verlag, New York.
 

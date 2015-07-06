@@ -89,7 +89,7 @@ This page contains a listing of recent changes made to the package.
 
 \item Add CITATION file. (24 Sep 2010)
 
-\item \code{\link{makedistn}}: Change \code{eval(parse(text=paste(x, " list(log=log)))", sep="")))} to \code{eval(parse(text=paste(x, " list(log.p=log)))", sep="")))}. (19 Dec 2010)
+\item \code{\link{makedistn}}: Change \code{eval(parse(text=paste(x, " list(log=log)))", sep="")))} to \cr \code{eval(parse(text=paste(x, " list(log.p=log)))", sep="")))}. (19 Dec 2010)
 
 \item \code{\link{pglm}}, \code{\link{pmmglm}}: Change all \code{log} arguments to \code{log.p}. (19 Dec 2010)
 
@@ -112,6 +112,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{BaumWelch.mmglmlong1}}: Call to \code{clusterApply} and \code{clusterExport} changed to \code{parallel::clusterApply} and \code{parallel::clusterExport}, respectively. (25 Sep 2014)
 
 \item Fix error in \code{inst/CITATION} file. (21 Jan 2015)
+
+\item Added to NAMESPACE: functions imported from \pkg{stats}. (06 Jul 2015)
 }}
 
 
