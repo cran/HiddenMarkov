@@ -114,6 +114,10 @@ This page contains a listing of recent changes made to the package.
 \item Fix error in \code{inst/CITATION} file. (21 Jan 2015)
 
 \item Added to NAMESPACE: functions imported from \pkg{stats}. (06 Jul 2015)
+
+\item \code{\link{HiddenMarkov}}: Add DOI to some references, rename topic to appear first in table of contents. (16 Oct 2015)
+
+\item Fortran warning: in file \code{src/extract.f}, \code{integer} definitions should precede \code{double precision} definitions. (29 Aug 2016)
 }}
 
 
