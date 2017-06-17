@@ -1,5 +1,5 @@
-07bf534459f3111d0aa7e47ebc098292 *DESCRIPTION
-38daa956d2b7b5c80f0cf748e6f9b827 *NAMESPACE
+1897ad9605c50b9c8511186b0890b1a9 *DESCRIPTION
+ed5cc1380a6c05d376b5df113c24ea9b *NAMESPACE
 5986e6402724232d4b66a8f2cd6af77b *NEWS
 b36ac435e05cae710372bdb74c8c3293 *R/BaumWelch.R
 507db1a5cdfb9cdf4e5f3809572c6fa5 *R/BaumWelch.dthmm.R
@@ -89,7 +89,7 @@ bfee2e728683d14aba32abdbcd7c0883 *demo/lnorm.R
 78dbf968c06379f63ec270565efeda51 *inst/CITATION
 3777e00c59b8b0161bc7863bb49b945a *inst/doc/index.html
 c1e21a8e0ebd1b5467c3a60919c980ab *man/BaumWelch.Rd
-e7d5a52ec7e35ef0daae5e1bcc97d441 *man/Changes.Rd
+f744502c655fdca9e00ea2f7b61d84c0 *man/Changes.Rd
 69e9392ae7ec514b115a4e47c83abeb3 *man/Demonstration.Rd
 e055514980070bfeab459d960eb967bc *man/Estep.Rd
 259d9b8830abf98c98c091b2e8168bf1 *man/HiddenMarkov-defunct.Rd
@@ -115,6 +115,7 @@ b1b787110ac4bcd725f377c3b112c5f4 *man/mmpp.Rd
 a76277452d400ce5876045c7ec62ac85 *man/residuals.Rd
 92a3139abf62df70909dd66c70f5a792 *man/simulate.Rd
 071ae56118e4b636c96f5f98821dce51 *man/summary.Rd
+05e8ce6ae4fd969cafa41d7aedf97f0a *src/HiddenMarkov_init.c
 ef77e67d8e6f96fab822fcbbdf0e8168 *src/dthmm.f
 94ca194d367328858f9564b329e728dc *src/extract.f
 56c62a1f408cd2d89cb9418c0dc53fbf *src/mmpp.f

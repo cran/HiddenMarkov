@@ -8,6 +8,8 @@ useDynLib(HiddenMarkov)
 #   5.  miscellaneous, mainly fitting related
 #   6.  deprecated functions
 
+useDynLib(HiddenMarkov, .registration=TRUE)
+
 export(
     dthmm,
     mchain,

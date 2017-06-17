@@ -118,6 +118,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{HiddenMarkov}}: Add DOI to some references, rename topic to appear first in table of contents. (16 Oct 2015)
 
 \item Fortran warning: in file \code{src/extract.f}, \code{integer} definitions should precede \code{double precision} definitions. (29 Aug 2016)
+
+\item Fix NOTES in \code{R CMD check --as-cran}: \code{Found no calls to: 'R_registerRoutines',} \code{'R_useDynamicSymbols'} (17 Jun 2017)
 }}
 
 
