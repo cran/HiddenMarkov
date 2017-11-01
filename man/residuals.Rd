@@ -28,7 +28,7 @@ The calculated residuals are \emph{pseudo residuals}. Under satisfactory conditi
 
 A continuity adjustment is made when the observed distribution is discrete. In the case of count distributions (e.g. binomial and Poisson) where the observed count is close to or on the boundary of the domain (e.g. binomial or Poisson count is zero, or binomial count is \dQuote{n}), the pseudo residuals will give a very poor indication of the models goodness of fit; see the Poisson example below.
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} or \code{"\link{mmglmlong1}"} can be viewed by typing \code{residuals.dthmm}, \code{residuals.mmglm0}, \code{residuals.mmglm1} or \code{residuals.mmglmlong1}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} and \code{"\link{mmglmlong1}"} can be viewed by appending \code{residuals.dthmm}, \code{residuals.mmglm0}, \code{residuals.mmglm1} or \code{residuals.mmglmlong1}, respectively, to \code{HiddenMarkov:::}, on the \R command line; e.g. \code{HiddenMarkov:::dthmm}. The three colons are needed because these method functions are not in the exported NAMESPACE.
 }
 
 \value{

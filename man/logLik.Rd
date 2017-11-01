@@ -28,7 +28,7 @@ Provides methods for the generic function \code{\link[stats]{logLik}}.
 \details{
 The methods provided here will always recalculate the log-likelihood even if it is already contained within the \code{object}. This enables the user to change parameter or data values within the \code{object} and recalculate the log-likelihood for the revised configuration.
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"}, \code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by typing \code{logLik.dthmm}, \code{logLik.mmglm0}, \code{logLik.mmglm1}, \code{logLik.mmglmlong1} or \code{logLik.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by appending \code{logLik.dthmm}, \code{logLik.mmglm0}, \code{logLik.mmglm1}, \code{logLik.mmglmlong1}  or \code{logLik.mmpp}, respectively, to \code{HiddenMarkov:::}, on the \R command line; e.g. \code{HiddenMarkov:::dthmm}. The three colons are needed because these method functions are not in the exported NAMESPACE.
 }
 
 \value{

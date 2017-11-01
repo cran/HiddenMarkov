@@ -32,7 +32,7 @@ BaumWelch(object, control, ...)
 \details{
 The initial parameter values used by the EM algorithm are those that are contained within the input \code{object}.
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"},  and \code{"\link{mmpp}"} can be viewed by typing \code{BaumWelch.dthmm}, \code{BaumWelch.mmglm0}, \code{BaumWelch.mmglm1}, \code{BaumWelch.mmglmlong1}  or \code{BaumWelch.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by appending \code{BaumWelch.dthmm}, \code{BaumWelch.mmglm0}, \code{BaumWelch.mmglm1}, \code{BaumWelch.mmglmlong1}  or \code{BaumWelch.mmpp}, respectively, to \code{HiddenMarkov:::}, on the \R command line; e.g. \code{HiddenMarkov:::dthmm}. The three colons are needed because these method functions are not in the exported NAMESPACE.
 }
 
 \value{

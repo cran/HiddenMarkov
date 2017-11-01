@@ -41,7 +41,7 @@ k_i^* = argmax Pr{ C_i=k | X^{(n)}=x^{(n)} } .
 }
 Note that the above probabilities are calculated by the function \code{\link{Estep}}, and are contained in \code{u[i,j]} (output from \code{Estep}), i.e. \eqn{k_i^*} is simply \code{which.max(u[i,])}.
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} or \code{"\link{mmglmlong1}"} can be viewed by typing \code{Viterbi.dthmm}, \code{Viterbi.mmglm0}, \code{Viterbi.mmglm1} or \code{Viterbi.mmglmlong1}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"} and \code{"\link{mmglmlong1}"} can be viewed by appending \code{Viterbi.dthmm}, \code{Viterbi.mmglm0}, \code{Viterbi.mmglm1} or \code{Viterbi.mmglmlong1}, respectively, to \code{HiddenMarkov:::}, on the \R command line; e.g. \code{HiddenMarkov:::dthmm}. The three colons are needed because these method functions are not in the exported NAMESPACE.
 }
 
 \value{

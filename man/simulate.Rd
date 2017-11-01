@@ -33,12 +33,18 @@ Below details about particular methods are given where necessary.
 \item{\code{simulate.mmglm0}}{If the covariate \code{x1} is \code{NULL}, then uniform (0,1) variables are generated as the values for \code{x1}. When the \code{family} is \code{"binomial"} and \code{size} is \code{NULL} (i.e. the number of Bernoulli trials are not specified), then they are simulated as \code{100+\link{rpois}(nsim, lambda=5)}.}
 }
 
-The code for the methods \code{"\link{dthmm}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"},  and \code{"\link{mmpp}"} can be viewed by typing \code{simulate.dthmm}, \code{simulate.mmglm0}, \code{simulate.mmglm1},\cr \code{simulate.mmglmlong1}  or \code{simulate.mmpp}, respectively, on the \R command line.
+The code for the methods \code{"\link{dthmm}"}, \code{"\link{mchain}"}, \code{"\link{mmglm0}"}, \code{"\link{mmglm1}"},\code{"\link{mmglmlong1}"} and \code{"\link{mmpp}"} can be viewed by appending \code{simulate.dthmm}, \code{simulate.mchain}, \code{simulate.mmglm0}, \code{simulate.mmglm1}, \code{simulate.mmglmlong1}  or \code{simulate.mmpp}, respectively, to \code{HiddenMarkov:::}, on the \R command line; e.g. \code{HiddenMarkov:::dthmm}. The three colons are needed because these method functions are not in the exported NAMESPACE.
 }
 
 
 \value{
-The returned object has the same class as the input object and contains the components that were in the input object. Where \code{object} is of class \code{"\link{dthmm}"} it will also have a vector \code{x} containing the simulated values; and when the class is \code{"\link{mmglm0}"} \code{x} will be a dataframe. When the class is \code{"\link{mmpp}"} the times of the simulated Poisson events are contained in \code{tau}. Other variables are also added like the sequence of Markov states, and the time spent in each state (\code{"\link{mmpp}"}).
+The returned object has the same class as the input object and contains the components that were in the input object. Additional components depend on the class as below:
+
+\code{"\link{dthmm}"}: it will also have a vector \code{x} containing the simulated values;
+
+\code{"\link{mmglm0}"}: it will also contain a dataframe \code{x} about the glm; and
+
+\code{"\link{mmpp}"}: \code{tau} contains times of the simulated Poisson events (plus time 0), \code{ys} is a vector of states at the time of each event, \code{y} is the sequence of states visited, and \code{x} is the time spent in each state.
 }
 
 \examples{

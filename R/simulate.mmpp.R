@@ -6,7 +6,8 @@ simulate.mmpp <- function(object, nsim=1, seed=NULL, ...){
     if (!is.null(seed)) set.seed(seed)
     m <- ncol(object$Q)
     #------------------------
-    if (sum(object$delta)!=1) stop("Invalid delta")
+    # if (sum(object$delta)!=1) stop("Invalid delta")
+    if (!isTRUE(all.equal(sum(object$delta), 1))) stop("Invalid delta")
     if (any(object$delta==1))
         initial <- (1:m)[as.logical(object$delta)]
     else

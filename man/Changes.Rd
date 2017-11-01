@@ -120,6 +120,12 @@ This page contains a listing of recent changes made to the package.
 \item Fortran warning: in file \code{src/extract.f}, \code{integer} definitions should precede \code{double precision} definitions. (29 Aug 2016)
 
 \item Fix NOTES in \code{R CMD check --as-cran}: \code{Found no calls to: 'R_registerRoutines',} \code{'R_useDynamicSymbols'} (17 Jun 2017)
+
+\item \code{\link{simulate.mchain}}: Change \code{if (sum(object$delta)!=1)} to \code{if (!isTRUE(all.equal(sum(object$delta), 1)))}. (21 Oct 2017)
+
+\item \code{\link{simulate.mmpp}}: Change \code{if (sum(object$delta)!=1)} to \code{if (!isTRUE(all.equal(sum(object$delta), 1)))}. (27 Oct 2017)
+
+\item Clarify various points in documentation. (27 Oct 2017)
 }}
 
 
