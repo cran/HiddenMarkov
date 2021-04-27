@@ -55,11 +55,11 @@ Baum, L.E.; Petrie, T.; Soules, G. & Weiss, N. (1970). A maximization technique 
 
 Charnes, A.; Frome, E.L. & Yu, P.L. (1976). The equivalence of generalized least squares and maximum likelihood estimates in the exponential family. \emph{J. American Statist. Assoc.} \bold{71(353)}, 169--171. \doi{10.2307/2285762}
 
-Dempster, A.P.; Laird, N.M. & Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38. URL: \url{http://www.jstor.org/stable/2984875}
+Dempster, A.P.; Laird, N.M. & Rubin, D.B. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). \emph{J. Royal Statist. Society B} \bold{39(1)}, 1--38. URL: \url{https://www.jstor.org/stable/2984875}
 
 Elliott, R.J.; Aggoun, L. & Moore, J.B. (1994). \emph{Hidden Markov Models: Estimation and Control.} Springer-Verlag, New York. \doi{10.1007/978-0-387-84854-9}
 
-Harte, D. (2006). \emph{Mathematical Background Notes for Package \dQuote{HiddenMarkov}.} Statistics Research Associates, Wellington. URL: \url{ftp://ftp.gns.cri.nz/pub/davidh/sslib/other/notes.pdf}
+Harte, D. (2019). \emph{Mathematical Background Notes for Package \dQuote{HiddenMarkov}.} Statistics Research Associates, Wellington. URL: \url{https://www.statsresearch.co.nz/dsh/sslib/manuals/notes.pdf}
 
 Hartley, H.O. (1958). Maximum likelihood estimation from incomplete data. \emph{Biometrics} \bold{14(2)}, 174--194. \doi{10.2307/2527783}
 

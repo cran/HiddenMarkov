@@ -126,6 +126,8 @@ This page contains a listing of recent changes made to the package.
 \item \code{\link{simulate.mmpp}}: Change \code{if (sum(object$delta)!=1)} to \code{if (!isTRUE(all.equal(sum(object$delta), 1)))}. (27 Oct 2017)
 
 \item Clarify various points in documentation. (27 Oct 2017)
+
+\item \code{\link{HiddenMarkov}}: Hyperlink update to Harte (2019); others updated to https where possible. (27 Apr 2021)
 }}
 
 
