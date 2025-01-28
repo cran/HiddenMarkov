@@ -4,22 +4,18 @@ url <- meta$URL
 package <- meta$Package
 title <- paste(package, ": ", meta$Title, sep="")
 
-citHeader(paste("To cite package '", package,
-                "' in publications use:", sep=""))
-
-citEntry(entry="Manual",
+bibentry(bibtype="Manual",
          title = title,
-         author = personList(as.person("David Harte")),
+         author = person(c("David", "S."), "Harte"),
          year = year,
          note = vers,
-         organization = "Statistics Research Associates",
-         address = "Wellington",
+         address = "Statistics Research Associates, Wellington NZ",
          url = url,
 
          textVersion =
-         paste("Harte, David. (",
-               year, "). ", title, ". ", vers, ". ", 
-               "Statistics Research Associates, Wellington. URL: ",
+         paste("Harte, David S. (",
+               year, "). ", title, ". ", vers, ". ",
+               "Statistics Research Associates, Wellington NZ. URL: ",
                url, sep="")
 )
 

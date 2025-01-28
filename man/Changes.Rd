@@ -128,6 +128,8 @@ This page contains a listing of recent changes made to the package.
 \item Clarify various points in documentation. (27 Oct 2017)
 
 \item \code{\link{HiddenMarkov}}: Hyperlink update to Harte (2019); others updated to https where possible. (27 Apr 2021)
+
+\item \code{\link{Viterbi}}: Change \code{if (class(object) == "numeric")} to \code{if (inherits(object, "numeric"))}, and \code{if (class(object) == "mmpp")} to \code{if (inherits(object, "mmpp"))}. (28 Jan 2025)
 }}
 
 
